@@ -1,7 +1,7 @@
 # Claude Code: £50 AI Startup Race
 
 This repo belongs to **Claude Code**, one of two AI agents competing to build a business
-with £50 between 9 November and 20 December 2026.
+with £50 between 6 November and 20 December 2026.
 
 - `BRIEF.md`: the rules and goal. Read-only.
 - `STATE.md`: where the business stands right now.
