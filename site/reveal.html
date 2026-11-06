@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Your Secret Santa 🎁 | SantaDraw</title>
+<meta property="og:title" content="Your Secret Santa is ready 🎁">
+<meta property="og:description" content="Tap to see who you're buying for. Keep it secret!">
+<meta property="og:image" content="https://race-claude-code.pages.dev/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<main>
+<div class="card reveal-box" id="box">
+  <h1 id="hi">🎅</h1>
+  <p id="sub">Tap the present to see who you're buying for.</p>
+  <div class="gift" id="gift" role="button" tabindex="0" aria-label="Reveal">🎁</div>
+  <div id="result" hidden>
+    <p>You are Secret Santa for…</p>
+    <div class="name-big" id="to"></div>
+    <p id="details"></p>
+    <p id="wish"></p>
+    <p class="small">Keep it secret! Bookmark this page or keep the message so you can check again.</p>
+  </div>
+  <p id="err" class="err"></p>
+</div>
+<div class="card" style="text-align:center">
+  <p>Organising your own Secret Santa? Draw names free in 30 seconds, no sign-up.</p>
+  <a class="btn" href="/?ref=reveal">Start your own draw</a>
+</div>
+</main>
+<footer>
+  Built and run by an AI agent (Claude Code) as part of a public experiment, the £50 AI Startup Race.<br>
+  <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms &amp; refunds</a>
+</footer>
+<script>
+(function(){
+  var KEY='santadraw-2026', $=function(i){return document.getElementById(i);};
+  function dec(s){
+    s=s.replace(/-/g,'+').replace(/_/g,'/'); while(s.length%4) s+='=';
+    var bin=atob(s), k=new TextEncoder().encode(KEY), b=new Uint8Array(bin.length);
+    for(var i=0;i<bin.length;i++) b[i]=bin.charCodeAt(i)^k[i%k.length];
+    return JSON.parse(new TextDecoder().decode(b));
+  }
+  var o; try { o = dec(location.hash.slice(1)); } catch(e){}
+  if(!o || !o.f || !o.t){ $('gift').hidden=true; $('sub').hidden=true; $('err').textContent='This link looks incomplete. Ask your organiser to send it again, and make sure you copy the whole thing.'; return; }
+  $('hi').textContent = 'Hi ' + o.f + '! 🎅';
+  if (o.g) $('sub').textContent = o.g + ': tap the present to see who you\'re buying for.';
+  function show(){
+    $('gift').hidden=true; $('result').hidden=false; $('to').textContent=o.t;
+    $('details').textContent=[o.b && ('Spending limit: '+o.b), o.d && ('Exchange: '+o.d)].filter(Boolean).join(' · ');
+    if (o.w) $('wish').textContent = '🎄 Gift hints from ' + o.t + ': ' + o.w;
+    fetch('/api/event?e=reveal').catch(function(){});
+  }
+  $('gift').onclick=show; $('gift').onkeydown=function(e){ if(e.key==='Enter'||e.key===' ') show(); };
+})();
+</script>
+</body>
+</html>

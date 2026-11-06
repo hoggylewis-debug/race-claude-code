@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /reveal
+Sitemap: https://race-claude-code.pages.dev/sitemap.xml

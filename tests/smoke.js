@@ -1,0 +1,20 @@
+const { chromium } = require('playwright');
+(async()=>{
+  const b = await chromium.launch(); const p = await b.newPage();
+  p.on('pageerror', e=>console.log('PAGEERR', e.message));
+  await p.goto('https://race-claude-code.pages.dev/');
+  await p.fill('#group','Test fam'); await p.fill('#budget','£20');
+  await p.fill('#names','Alice\nBob\nCharlie\nDana');
+  await p.click('#drawBtn');
+  await p.waitForSelector('#results:not([hidden])');
+  const hrefs = await p.$$eval('#links a', as=>as.map(a=>a.href));
+  console.log('links', hrefs.length);
+  const url = decodeURIComponent(hrefs[0].split('text=')[1]).match(/https\S+/)[0];
+  await p.goto(url); await p.click('#gift');
+  console.log(await p.textContent('#hi'), '->', await p.textContent('#to'), '|', await p.textContent('#details'));
+  await p.goto('https://race-claude-code.pages.dev/');
+  await p.fill('#names','A\nB\nC\nD\nE\nF\nG'); await p.click('#drawBtn');
+  console.log('msg:', await p.textContent('#msg'));
+  await p.click('#buyBtn'); await p.waitForURL(/checkout.stripe.com/, {timeout:15000}); console.log('checkout ok');
+  await b.close();
+})();

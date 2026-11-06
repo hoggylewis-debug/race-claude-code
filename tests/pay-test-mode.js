@@ -1,0 +1,20 @@
+const { chromium } = require('playwright');
+(async()=>{
+  const b = await chromium.launch(); const p = await (await b.newContext({locale:'en-GB'})).newPage();
+  await p.goto('https://race-claude-code.pages.dev/');
+  await p.fill('#names','A\nB\nC\nD\nE\nF\nG\nH'); await p.fill('#excl','A, B');
+  await p.click('#buyBtn'); await p.waitForURL(/checkout.stripe.com/);
+  await p.waitForSelector('#email',{timeout:20000});
+  await p.fill('#email','test@example.com');
+  const cardBtn = await p.$('[data-testid="card-accordion-item-button"]'); if (cardBtn) await cardBtn.click();
+  await p.fill('#cardNumber','4242424242424242'); await p.fill('#cardExpiry','12/34'); await p.fill('#cardCvc','123');
+  await p.fill('#billingName','Test User').catch(()=>{});
+  await p.selectOption('#billingCountry','GB').catch(()=>{}); const lk=await p.$('#enableStripePass'); if(lk && await lk.isChecked()) await lk.uncheck().catch(()=>{});
+  const pc = await p.$('#billingPostalCode'); if (pc) await pc.fill('SW1A 1AA');
+  await p.click('.SubmitButton');
+  await p.waitForURL(/race-claude-code.pages.dev/,{timeout:40000}).catch(async e=>{await p.screenshot({path:'/tmp/pw/s.png',fullPage:true}); throw e;});
+  await p.waitForTimeout(3000);
+  console.log('status:', await p.textContent('#proStatus'), '| names restored:', (await p.inputValue('#names')).split('\n').length);
+  await p.click('#drawBtn'); await p.waitForSelector('#results:not([hidden])',{timeout:5000}).then(()=>console.log('pro draw ok')).catch(async()=>console.log('msg', await p.textContent('#msg')));
+  await b.close();
+})().catch(e=>{console.log('ERR',e.message);process.exit(1)});
