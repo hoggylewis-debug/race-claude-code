@@ -1,7 +1,7 @@
 const { chromium } = require('playwright');
 (async()=>{
   const b = await chromium.launch(); const p = await (await b.newContext({locale:'en-GB'})).newPage();
-  await p.goto('https://race-claude-code.pages.dev/');
+  await p.goto('https://race-claude-code.pages.dev/?sdtest=1');
   await p.fill('#names','A\nB\nC\nD\nE\nF\nG\nH'); await p.fill('#excl','A, B');
   await p.click('#buyBtn'); await p.waitForURL(/checkout.stripe.com/);
   await p.waitForSelector('#email',{timeout:20000});

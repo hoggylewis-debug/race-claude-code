@@ -101,6 +101,88 @@ PAGES = [
 <h2>Under £30</h2>
 <ul><li>Wireless earbuds or a small speaker (look for good-value brands)</li><li>A board game for the family</li><li>An experience voucher: cinema, bowling, a class</li><li>A personalised print or photo book</li><li>Good gloves and a scarf</li></ul>
 <p><strong>Best tip:</strong> ask everyone to add 2 or 3 ideas to the wishlist box when you draw (Pro). Whoever draws them sees the hints in their private link, so nobody gets a gift they don't want.</p></div>'''),
+ dict(path='/secret-santa-for-kids', file='secret-santa-for-kids.html', nav='Secret Santa for kids and classes',
+  title='Secret Santa for Kids: easy name draw for children, cousins and school classes | SantaDraw',
+  desc='Run a Secret Santa for kids, cousins or a school class. Draw names in seconds, set a small budget, and print a card for each child. No accounts or emails needed.',
+  h1='🎅 Secret Santa for kids',
+  sub='For cousins, Brownies, clubs and classes. Draw names in seconds,<br>then send the links to parents or print a card for each child.',
+  extra='''<div class="card"><h2 style="margin-top:0">Tips for a children's Secret Santa</h2>
+<ul><li><strong>Keep the budget small and clear:</strong> £5 or £10 works well, so no child feels left out.</li>
+<li><strong>Send links to the parents</strong>, not the children, so a grown-up helps with shopping and keeps the secret.</li>
+<li><strong>Young children?</strong> Print a card for each child (Pro) and hand them out in sealed envelopes.</li>
+<li><strong>Siblings:</strong> add brothers and sisters as exclusions (Pro) so they buy for a cousin or friend instead.</li>
+<li><strong>Wishlists:</strong> ask each child for 2 or 3 ideas ("dinosaurs, slime, anything purple") and add them as hints (Pro).</li></ul>
+<p>SantaDraw never stores names. Everything happens in your browser, which matters when the names are children's.</p></div>'''),
+ dict(path='/secret-santa-rules', file='secret-santa-rules.html', nav='Secret Santa rules',
+  title='Secret Santa Rules: the simple rules every group should agree | SantaDraw',
+  desc='The Secret Santa rules most groups use: spending limit, keeping it secret, couples, gift receipts and what to do if someone drops out. Plus a free name draw.',
+  h1='📜 Secret Santa rules',
+  sub='The rules everyone should agree before the draw,<br>and a free name draw to make it fair.',
+  extra='''<div class="card"><h2 style="margin-top:0">The classic Secret Santa rules</h2>
+<ol><li><strong>Everyone buys for one person</strong>, chosen at random, and never for themselves.</li>
+<li><strong>Stick to the spending limit.</strong> Going way over is as awkward as going under.</li>
+<li><strong>Keep it secret</strong> until the gifts are opened. Don't tell anyone who you drew.</li>
+<li><strong>Partners don't draw each other</strong> (common in families; use exclusions).</li>
+<li><strong>Include a gift receipt</strong> where you can.</li>
+<li><strong>Give it on the agreed date</strong>, or post it in time for a virtual exchange.</li></ol>
+<h3>What if someone drops out after the draw?</h3>
+<p>The fairest fix is to redraw: remove their name and draw again (it takes 30 seconds), then send the new links. If only one person is affected, the organiser can quietly buy for the person who's lost their Santa instead.</p>
+<h3>What if someone draws themselves?</h3>
+<p>With a paper hat it happens all the time. With SantaDraw it can't: nobody is ever matched with themselves.</p></div>'''),
+ dict(path='/secret-santa-with-wishlist', file='secret-santa-with-wishlist.html', nav='Secret Santa with wishlists',
+  title='Secret Santa Generator with Wishlists: everyone sees their person\'s gift hints | SantaDraw',
+  desc='A Secret Santa draw with wishlists. Add a few gift ideas for each person and whoever draws them sees the hints in their private link. No sign-up.',
+  h1='🎁 Secret Santa with wishlists',
+  sub='Add 2 or 3 gift ideas for each person. Whoever draws them<br>sees the hints in their private link. No more unwanted mugs.',
+  extra='''<div class="card"><h2 style="margin-top:0">How wishlists work</h2>
+<ol><li>Ask everyone in your group chat for 2 or 3 gift ideas before you draw.</li>
+<li>Type them in the <strong>Wishlists</strong> box, one person per line: <code>Alice: books, dark chocolate</code>.</li>
+<li>Draw names. Each person's private link shows who they're buying for <em>and</em> that person's hints.</li></ol>
+<p>Nobody sees their own wishlist being matched, and nobody else's link shows your hints. Wishlists are part of SantaDraw Pro (£2.49 one-off), with exclusions, bigger groups and printable cards.</p></div>'''),
+ dict(path='/secret-santa-without-email', file='secret-santa-without-email.html', nav='Secret Santa without email addresses',
+  title='Secret Santa Without Email Addresses or Sign-Up | SantaDraw',
+  desc='Most Secret Santa sites make everyone register with an email. SantaDraw doesn\'t: draw names in your browser and send private links by WhatsApp or text.',
+  h1='🔒 Secret Santa without emails',
+  sub='No accounts, no email addresses, no spam afterwards.<br>Draw in your browser, send private links however you like.',
+  extra='''<div class="card"><h2 style="margin-top:0">Why no emails?</h2>
+<p>Many Secret Santa sites ask the organiser to type in everyone's email address, then send invitations, reminders and marketing. Half the family never finds the email, and the other half get spam for years.</p>
+<p>SantaDraw works differently. The draw runs in your browser, and each person's match is scrambled inside their own link. You send the links by WhatsApp, text, Messenger, Slack or anything else. Nothing is stored on our servers, so there's nothing to leak and nobody to unsubscribe from.</p>
+<p>The trade-off: you, the organiser, send the links. It takes about a minute for a family of 8.</p></div>'''),
+ dict(path='/secret-santa-for-friends', file='secret-santa-for-friends.html', nav='Secret Santa for friends',
+  title='Secret Santa for Friends: draw names for your friendship group | SantaDraw',
+  desc='Organise a Secret Santa for your friends in a minute. Draw names free, send private links in the group chat, add wishlists and a spending limit.',
+  h1='🎅 Secret Santa for friends',
+  sub='Draw names for your friendship group, uni flat or housemates,<br>and send everyone a private link in a minute.',
+  extra='''<div class="card"><h2 style="margin-top:0">Making a friends' Secret Santa work</h2>
+<ul><li><strong>Pick a budget everyone's comfortable with.</strong> £10 to £20 is typical; students often go for £5.</li>
+<li><strong>Choose the date first</strong>, usually a Christmas dinner or night out, and put it in the draw so it shows on everyone's link.</li>
+<li><strong>Couples in the group?</strong> Use exclusions (Pro) so they don't draw each other.</li>
+<li><strong>Try a theme:</strong> "secondhand only", "something under £10 that's edible", or "a book that changed your life".</li></ul>
+<p>Up to 6 friends is free. Bigger groups, exclusions and wishlists are £2.49 once with Pro.</p></div>'''),
+ dict(path='/printable-secret-santa-cards', file='printable-secret-santa-cards.html', nav='Printable Secret Santa cards',
+  title='Printable Secret Santa Cards: draw names and print a card for each person | SantaDraw',
+  desc='Draw Secret Santa names online and print a card for each person, with their match, spending limit, date and gift hints. Great for families and classrooms.',
+  h1='🖨️ Printable Secret Santa cards',
+  sub='Draw names here, then print one card per person<br>with their match, the budget, the date and any gift hints.',
+  extra='''<div class="card"><h2 style="margin-top:0">When paper is better</h2>
+<ul><li><strong>Family gatherings:</strong> hand everyone a folded card at the table.</li>
+<li><strong>Grandparents without smartphones.</strong></li>
+<li><strong>Classrooms and clubs</strong>, where children don't have phones.</li></ul>
+<p>After drawing, press <strong>Print cards</strong>. Each card shows the person's name, who they're buying for, the spending limit, the exchange date and their recipient's wishlist hints. Cut along the dashed lines and fold each card so the match is hidden. Printable cards are part of SantaDraw Pro (£2.49 one-off).</p></div>'''),
+ dict(path='/secret-santa-message', file='secret-santa-message.html', nav='Secret Santa invite messages',
+  title='Secret Santa Message Templates: invite your group on WhatsApp or at work | SantaDraw',
+  desc='Copy-and-paste Secret Santa messages for WhatsApp groups, families and work: the invite, the reminder and the "names are drawn" message. Plus a free draw.',
+  h1='💬 Secret Santa message templates',
+  sub='Copy, paste, send. Messages for inviting your group, announcing the draw<br>and reminding everyone, plus the draw itself right here.',
+  extra='''<div class="card"><h2 style="margin-top:0">1. The invite (family or friends)</h2>
+<p><em>"Hi all 🎄 Shall we do Secret Santa this year instead of everyone buying for everyone? One present each, £20 limit, swapped on Christmas Day. Reply 🎅 if you're in by Sunday and I'll draw names!"</em></p>
+<h2>2. The invite (work)</h2>
+<p><em>"Hi team! We're doing an optional Secret Santa this year 🎁 Limit £10, gifts exchanged at the Christmas lunch on the 18th. Reply here or message me by Friday if you'd like to join. No pressure either way."</em></p>
+<h2>3. Names are drawn</h2>
+<p><em>"Names are drawn! 🎅 I'm sending each of you a private link now. Tap it to see who you're buying for, and keep it to yourself! Limit £20, swap on Christmas Day."</em></p>
+<p>SantaDraw writes this one for you: after the draw, each person's <strong>WhatsApp</strong> button opens a ready-written message with their private link.</p>
+<h2>4. The reminder</h2>
+<p><em>"One week to go until our Secret Santa swap 🎁 Lost your link? Scroll up to my private message to you, it still works. Remember the £20 limit!"</em></p></div>'''),
 ]
 
 nav_html = ' · '.join('<a href="%s">%s</a>' % (p['path'], p['nav']) for p in PAGES)
@@ -114,6 +196,7 @@ for p in PAGES:
 
 today = datetime.date.today().isoformat()
 urls = ''.join('<url><loc>%s%s</loc><lastmod>%s</lastmod></url>' % (BASE, p['path'], today) for p in PAGES)
+urls += ''.join('<url><loc>%s/%s</loc></url>' % (BASE, x) for x in ('contact', 'terms', 'privacy'))
 open(os.path.join(ROOT, 'site/sitemap.xml'), 'w').write('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">%s</urlset>\n' % urls)
 open(os.path.join(ROOT, 'site/robots.txt'), 'w').write('User-agent: *\nAllow: /\nDisallow: /reveal\nSitemap: %s/sitemap.xml\n' % BASE)
 print('built', len(PAGES), 'pages')

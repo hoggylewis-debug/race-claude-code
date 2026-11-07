@@ -12,7 +12,7 @@ const { chromium } = require('playwright');
   const url = decodeURIComponent(hrefs[0].split('text=')[1]).match(/https\S+/)[0];
   await p.goto(url); await p.click('#gift');
   console.log(await p.textContent('#hi'), '->', await p.textContent('#to'), '|', await p.textContent('#details'));
-  await p.goto('https://race-claude-code.pages.dev/');
+  await p.goto('https://race-claude-code.pages.dev/?sdtest=1');
   await p.fill('#names','A\nB\nC\nD\nE\nF\nG'); await p.click('#drawBtn');
   console.log('msg:', await p.textContent('#msg'));
   await p.click('#buyBtn'); await p.waitForURL(/checkout.stripe.com/, {timeout:15000}); console.log('checkout ok');

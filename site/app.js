@@ -156,14 +156,15 @@ function restoreForm(){
 function buy(){
   saveForm();
   $('buyBtn').disabled = true; $('proStatus').textContent = 'Opening secure checkout…';
-  fetch('/api/checkout', {method:'POST'}).then(function(r){ return r.json(); }).then(function(j){
+  fetch('/api/checkout' + (/sdtest=1/.test(location.search) ? '?test=1' : ''), {method:'POST'}).then(function(r){ return r.json(); }).then(function(j){
+    if (j.preview){ try { localStorage.setItem('sd_pro','1'); localStorage.setItem('sd_preview','1'); } catch(e){} updateProUI(); $('msg').textContent=''; $('proStatus').innerHTML = '<span class="ok">✓ Card payments aren\'t switched on yet, so Pro is free in this browser for now. Enjoy, and tell a friend!</span>'; return; }
     if (j.url) location.href = j.url; else throw new Error(j.error || 'checkout failed');
   }).catch(function(){ $('buyBtn').disabled=false; $('proStatus').textContent='Sorry, checkout is unavailable right now. Please try again in a minute.'; });
 }
 function updateProUI(){
   var pro = isPro();
   $('proSection').classList.toggle('locked', !pro);
-  if (pro){ $('buyBtn').hidden = true; $('proStatus').innerHTML = '<span class="ok">✓ Pro is unlocked in this browser. Thank you!</span>'; }
+  if (pro){ $('buyBtn').hidden = true; var pv=false; try{pv=localStorage.getItem('sd_preview')==='1';}catch(e){} $('proStatus').innerHTML = '<span class="ok">✓ Pro is unlocked in this browser' + (pv ? ' (free preview).' : '. Thank you!') + '</span>'; }
 }
 function checkReturn(){
   var p = new URLSearchParams(location.search), sid = p.get('paid');

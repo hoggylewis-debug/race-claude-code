@@ -1,6 +1,9 @@
 export async function onRequestPost({ request, env }) {
   if (!env.STRIPE_SECRET_KEY) return Response.json({ error: 'not configured' }, { status: 500 });
-  const origin = new URL(request.url).origin;
+  const u = new URL(request.url), origin = u.origin;
+  // Until the live Stripe key is installed, real visitors get Pro free ("preview") instead of a TEST-mode checkout.
+  // Automated tests pass ?test=1 to still exercise the test checkout.
+  if (env.STRIPE_SECRET_KEY.startsWith('sk_test_') && u.searchParams.get('test') !== '1') return Response.json({ preview: true });
   const body = new URLSearchParams({
     mode: 'payment',
     'line_items[0][quantity]': '1',
