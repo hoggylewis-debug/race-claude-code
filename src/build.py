@@ -100,7 +100,8 @@ PAGES = [
 <ul><li>A cosy blanket or hot water bottle</li><li>A good notebook and pen</li><li>A scented candle</li><li>A cookbook for a cuisine they love</li><li>A jigsaw puzzle</li><li>Local food or drink treats from a market</li></ul>
 <h2>Under £30</h2>
 <ul><li>Wireless earbuds or a small speaker (look for good-value brands)</li><li>A board game for the family</li><li>An experience voucher: cinema, bowling, a class</li><li>A personalised print or photo book</li><li>Good gloves and a scarf</li></ul>
-<p><strong>Best tip:</strong> ask everyone to add 2 or 3 ideas to the wishlist box when you draw (Pro). Whoever draws them sees the hints in their private link, so nobody gets a gift they don't want.</p></div>'''),
+<p><strong>Best tip:</strong> ask everyone to add 2 or 3 ideas to the wishlist box when you draw (Pro). Whoever draws them sees the hints in their private link, so nobody gets a gift they don't want.</p>
+<p>More ideas: <a href="/secret-santa-gifts-under-5">gifts under £5</a> · <a href="/secret-santa-gifts-under-10">gifts under £10</a> · <a href="/secret-santa-gifts-under-20">gifts under £20</a></p></div>'''),
  dict(path='/secret-santa-for-kids', file='secret-santa-for-kids.html', nav='Secret Santa for kids and classes',
   title='Secret Santa for Kids: easy name draw for children, cousins and school classes | SantaDraw',
   desc='Run a Secret Santa for kids, cousins or a school class. Draw names in seconds, set a small budget, and print a card for each child. No accounts or emails needed.',
@@ -183,6 +184,131 @@ PAGES = [
 <p>SantaDraw writes this one for you: after the draw, each person's <strong>WhatsApp</strong> button opens a ready-written message with their private link.</p>
 <h2>4. The reminder</h2>
 <p><em>"One week to go until our Secret Santa swap 🎁 Lost your link? Scroll up to my private message to you, it still works. Remember the £20 limit!"</em></p></div>'''),
+ dict(path='/secret-santa-gifts-under-5', file='secret-santa-gifts-under-5.html', nav='Secret Santa gifts under £5',
+  title='Secret Santa Gifts Under £5: 20 cheap ideas that don\'t feel cheap | SantaDraw',
+  desc='Cheap Secret Santa gift ideas under £5 for work, school and students, plus a free Secret Santa generator with private WhatsApp links. No sign-up.',
+  h1='🎁 Secret Santa gifts under £5',
+  sub='A £5 limit is perfect for offices, classrooms and students.<br>Ideas below, and a free name draw right here.',
+  extra='''<div class="card"><h2 style="margin-top:0">Edible (always a safe bet)</h2>
+<ul><li>A bar of really good chocolate</li><li>A jar of hot chocolate stirrers or marshmallows</li><li>Homemade biscuits or fudge in a jam jar</li><li>A mini bottle of hot sauce</li><li>Fancy tea bags or a single-origin coffee sachet set</li></ul>
+<h2>Useful</h2>
+<ul><li>A good pen or a pack of fun highlighters</li><li>A pocket notebook</li><li>Lip balm or hand cream</li><li>A phone stand or cable tidy</li><li>Novelty Christmas socks</li></ul>
+<h2>Fun</h2>
+<ul><li>A pack of cards or a mini travel game</li><li>A Christmas cracker joke book</li><li>A tiny succulent in a pot</li><li>A secondhand paperback with a note saying why you picked it</li><li>A bath bomb</li></ul>
+<h2>Making £5 look generous</h2>
+<p>Presentation does most of the work: brown paper, string and a sprig of greenery. Adding a handwritten note costs nothing. With SantaDraw Pro (£2.49 once, for the organiser) everyone can add wishlist hints, so even a £5 gift hits the mark.</p></div>'''),
+ dict(path='/secret-santa-gifts-under-10', file='secret-santa-gifts-under-10.html', nav='Secret Santa gifts under £10',
+  title='Secret Santa Gifts Under £10: ideas for work, friends and family | SantaDraw',
+  desc='Secret Santa gift ideas under £10 for colleagues, friends and family, plus a free Secret Santa generator with private links and wishlists. No sign-up.',
+  h1='🎁 Secret Santa gifts under £10',
+  sub='£10 is the most popular Secret Santa limit at work.<br>Here are ideas that people actually use, plus a free name draw.',
+  extra='''<div class="card"><h2 style="margin-top:0">For colleagues</h2>
+<ul><li>A good insulated travel mug</li><li>A desk plant (snake plants are hard to kill)</li><li>A quality notebook and pen set</li><li>A box of nice biscuits for their desk drawer</li><li>A wireless charging pad (look for good-value brands)</li></ul>
+<h2>For friends</h2>
+<ul><li>A paperback you loved, with a note inside</li><li>A card game like a party quiz game</li><li>A candle in their favourite scent</li><li>A cocktail or mocktail kit</li><li>A cosy pair of bed socks</li></ul>
+<h2>For family</h2>
+<ul><li>A jigsaw puzzle</li><li>A photo printed and framed</li><li>Local honey, jam or chutney</li><li>A hot water bottle with a knitted cover</li></ul>
+<p><strong>Tip:</strong> the easiest way to avoid a dud present is to ask for hints. With wishlists (SantaDraw Pro, £2.49 once for the organiser), everyone's private link shows their person's ideas.</p></div>'''),
+ dict(path='/secret-santa-gifts-under-20', file='secret-santa-gifts-under-20.html', nav='Secret Santa gifts under £20',
+  title='Secret Santa Gifts Under £20: thoughtful ideas for him, her and anyone | SantaDraw',
+  desc='Thoughtful Secret Santa gift ideas under £20 for family and friends, plus a free Secret Santa generator with exclusions, wishlists and private WhatsApp links.',
+  h1='🎁 Secret Santa gifts under £20',
+  sub='£20 is the usual limit for family and friends Secret Santa.<br>Ideas for anyone on your list, plus a free name draw.',
+  extra='''<div class="card"><h2 style="margin-top:0">Cosy</h2>
+<ul><li>A chunky knit blanket or throw</li><li>Slipper socks or proper slippers</li><li>A luxury hot chocolate set with a mug</li><li>A big scented candle</li></ul>
+<h2>For people who like doing things</h2>
+<ul><li>A 1000-piece jigsaw or a strategy board game</li><li>A cookbook for a cuisine they love</li><li>A beginner's craft kit: embroidery, candle making, watercolours</li><li>A bird feeder with a bag of seed</li></ul>
+<h2>Food and drink</h2>
+<ul><li>A hamper you build yourself from local shops</li><li>A good olive oil and balsamic set</li><li>A coffee grinder or a bag of specialty beans</li></ul>
+<h2>Tech and gadgets</h2>
+<ul><li>A portable phone charger</li><li>A smart plug or a sunrise alarm clock (check the price, they vary)</li><li>A small Bluetooth speaker</li></ul>
+<p><strong>Families:</strong> use exclusions so couples don't draw each other, and wishlists so nobody guesses blind. Both come with SantaDraw Pro (£2.49 once).</p></div>'''),
+ dict(path='/secret-santa-for-large-groups', file='secret-santa-for-large-groups.html', nav='Secret Santa for large groups',
+  title='Secret Santa Generator for Large Groups (10, 20, 50+ people) | SantaDraw',
+  desc='Draw Secret Santa names for a big family, office or club. Any group size, exclusions, wishlists and a private link for everyone. No sign-up, no emails.',
+  h1='🎅 Secret Santa for large groups',
+  sub='Big family? Whole office? Sports club? Draw names for any group size<br>and send everyone their own private link.',
+  extra='''<div class="card"><h2 style="margin-top:0">Running Secret Santa for 10, 20 or 50 people</h2>
+<ul><li><strong>Paste the whole list at once.</strong> Copy names from a spreadsheet or group chat, one per line.</li>
+<li><strong>Use exclusions</strong> for couples, people in the same household, or last year's pairs.</li>
+<li><strong>Copy all links</strong> after the draw and keep them somewhere private, so you can resend a lost link.</li>
+<li><strong>Need paper?</strong> Print a card for each person instead.</li></ul>
+<p>Groups up to 6 are free. Larger groups need SantaDraw Pro, a one-off £2.49 for the organiser (not per person), which also unlocks exclusions, wishlists and printable cards. Nobody else pays anything or signs up.</p></div>'''),
+ dict(path='/secret-santa-name-picker', file='secret-santa-name-picker.html', nav='Secret Santa name picker',
+  title='Secret Santa Name Picker: random, fair, nobody gets themselves | SantaDraw',
+  desc='A random Secret Santa name picker. Type the names, press draw, and everyone gets a private link with their match. Nobody draws themselves. Free, no sign-up.',
+  h1='🎲 Secret Santa name picker',
+  sub='Random and fair: nobody picks themselves, and nobody sees anyone else\'s match.<br>Type names, press draw, send the links.',
+  extra='''<div class="card"><h2 style="margin-top:0">How the picker works</h2>
+<p>SantaDraw shuffles the names in your browser using your device's secure random number generator, then checks that nobody got themselves and every exclusion is respected. If a rule can't be met, it tells you instead of quietly breaking it.</p>
+<p>Each match is then scrambled into its own link. Unlike a "show everyone" name picker, the organiser doesn't have to see the results: just send each link to its owner and you can take part too.</p>
+<h3>Why not a hat?</h3>
+<ul><li>No-one draws their own name and has to redraw (giving the game away).</li>
+<li>Works for people who aren't in the room.</li>
+<li>Couples can be kept apart with exclusions.</li></ul></div>'''),
+ dict(path='/secret-santa-for-housemates', file='secret-santa-for-housemates.html', nav='Secret Santa for housemates and uni',
+  title='Secret Santa for Housemates, Uni Flats and Societies | SantaDraw',
+  desc='Draw Secret Santa names for your house, uni flat or society in a minute. Free for up to 6, private links in the group chat, a £5 or £10 limit.',
+  h1='🏠 Secret Santa for housemates',
+  sub='Uni flat, shared house or society social? Draw names in a minute<br>and drop everyone their private link in the group chat.',
+  extra='''<div class="card"><h2 style="margin-top:0">Housemate Secret Santa ideas</h2>
+<ul><li><strong>Keep the limit low:</strong> £5 or £10 works for most students.</li>
+<li><strong>Do it before everyone goes home</strong> for the holidays, at a flat dinner or the last night out of term.</li>
+<li><strong>Themes that work:</strong> "something for the house", "charity shop finds only", "the worst gift under £5".</li>
+<li><strong>Society socials:</strong> paste the whole member list in, and use exclusions for couples.</li></ul>
+<p>Up to 6 people is free. Bigger groups need SantaDraw Pro, £2.49 once, which one person pays, so it's about 30p each in a flat of 8.</p></div>'''),
+ dict(path='/secret-santa-for-teachers', file='secret-santa-for-teachers.html', nav='Staff room Secret Santa',
+  title='Staff Room Secret Santa: draw names for teachers and school staff | SantaDraw',
+  desc='Organise a staff room Secret Santa for teachers and school staff. Draw names, print cards for the pigeonholes or send private links. No sign-up.',
+  h1='🍎 Staff room Secret Santa',
+  sub='For teachers, TAs and support staff. Draw names, then print cards<br>for the pigeonholes or send private links.',
+  extra='''<div class="card"><h2 style="margin-top:0">Tips for a school staff Secret Santa</h2>
+<ul><li><strong>Make it opt-in</strong> with a sign-up sheet in the staff room.</li>
+<li><strong>Keep the limit modest</strong>, £5 or £10, so everyone can join.</li>
+<li><strong>Printable cards</strong> (Pro): print one per person and pop them in pigeonholes. Each card shows their match, the limit, the date and gift hints.</li>
+<li><strong>Swap on the last day of term</strong>, at the staff lunch or in the staff room.</li></ul>
+<p>Running it for a class of children instead? See <a href="/secret-santa-for-kids">Secret Santa for kids and classes</a>.</p></div>'''),
+ dict(path='/funny-secret-santa-gifts', file='funny-secret-santa-gifts.html', nav='Funny Secret Santa gifts',
+  title='Funny Secret Santa Gifts: ideas that get a laugh (and still get used) | SantaDraw',
+  desc='Funny Secret Santa gift ideas for work and friends that get a laugh without being awkward, plus a free Secret Santa generator. No sign-up.',
+  h1='😂 Funny Secret Santa gifts',
+  sub='The best funny gifts get a laugh when they\'re opened and still get used in January.<br>Ideas below, and a free name draw right here.',
+  extra='''<div class="card"><h2 style="margin-top:0">Funny and actually useful</h2>
+<ul><li>A mug with an in-joke from the team or group chat</li><li>A "desk survival kit": a stress ball, emergency biscuits and a tiny violin</li><li>A pizza-shaped blanket</li><li>Socks printed with their pet's face</li><li>A "world's okayest colleague" award</li><li>A rubber duck for their desk (developers will understand)</li></ul>
+<h2>Keep it kind</h2>
+<ul><li>Joke about situations, never about someone's looks, age or weight.</li><li>At work, if you wouldn't open it in front of your manager, don't buy it.</li><li>If in doubt, pair a silly gift with a small proper one, like good chocolate.</li></ul>
+<p>Running a "funny gifts only" theme? Put it in the draw details so it shows on everyone's private link.</p></div>'''),
+ dict(path='/secret-santa-gifts-for-colleagues', file='secret-santa-gifts-for-colleagues.html', nav='Secret Santa gifts for colleagues',
+  title='Secret Santa Gifts for Colleagues: safe, thoughtful work gift ideas | SantaDraw',
+  desc='Secret Santa gift ideas for colleagues you don\'t know well, at £5, £10 and £20. Plus a free office Secret Santa generator with private links.',
+  h1='💼 Secret Santa gifts for colleagues',
+  sub='Drew someone from another department? These are safe bets for almost anyone,<br>plus a free office Secret Santa draw.',
+  extra='''<div class="card"><h2 style="margin-top:0">When you don't know them well</h2>
+<ul><li>Good chocolate or biscuits (check for allergies or veganism by asking around)</li><li>A desk plant that's hard to kill</li><li>A quality notebook and pen</li><li>A reusable coffee cup</li><li>A hand cream and lip balm set</li></ul>
+<h2>When you know a little about them</h2>
+<ul><li>Runner or cyclist: a phone armband or a bike light</li><li>Tea or coffee lover: a specialty selection</li><li>Reader: a paperback in their favourite genre</li><li>Gamer: a small desk toy or a mouse mat with their favourite game</li></ul>
+<h2>The easy way</h2>
+<p>Let people add gift hints when the organiser draws names. With SantaDraw Pro (£2.49 once, for the organiser), each private link shows the hints for the colleague you drew. See also: <a href="/office-secret-santa">running an office Secret Santa</a>.</p></div>'''),
+ dict(path='/secret-santa-gifts-for-him', file='secret-santa-gifts-for-him.html', nav='Secret Santa gifts for him',
+  title='Secret Santa Gifts for Him: ideas under £10 and £20 | SantaDraw',
+  desc='Secret Santa gift ideas for him, for dads, brothers, friends and colleagues, under £10 and £20. Plus a free Secret Santa generator with wishlists.',
+  h1='🎁 Secret Santa gifts for him',
+  sub='Ideas for a dad, brother, friend or colleague, at £10 and £20.<br>Plus a free name draw with wishlists.',
+  extra='''<div class="card"><h2 style="margin-top:0">Under £10</h2>
+<ul><li>A hot sauce trio</li><li>Good socks (people always use them)</li><li>A multi-tool keyring</li><li>A craft beer or alcohol-free beer selection</li><li>A paperback by an author he likes</li></ul>
+<h2>Under £20</h2>
+<ul><li>A beard or shaving kit</li><li>A good insulated flask</li><li>A board game or a big jigsaw</li><li>A barbecue rub set</li><li>A portable phone charger</li></ul>
+<p>Not sure what he's into? Wishlists (SantaDraw Pro) let everyone add 2 or 3 hints before the draw.</p></div>'''),
+ dict(path='/secret-santa-gifts-for-her', file='secret-santa-gifts-for-her.html', nav='Secret Santa gifts for her',
+  title='Secret Santa Gifts for Her: ideas under £10 and £20 | SantaDraw',
+  desc='Secret Santa gift ideas for her, for mums, sisters, friends and colleagues, under £10 and £20. Plus a free Secret Santa generator with wishlists.',
+  h1='🎁 Secret Santa gifts for her',
+  sub='Ideas for a mum, sister, friend or colleague, at £10 and £20.<br>Plus a free name draw with wishlists.',
+  extra='''<div class="card"><h2 style="margin-top:0">Under £10</h2>
+<ul><li>A scented candle</li><li>A pretty notebook and pen</li><li>Posh hot chocolate</li><li>A silk scrunchie set</li><li>A paperback by an author she likes</li></ul>
+<h2>Under £20</h2>
+<ul><li>A cosy throw or bed socks</li><li>A houseplant in a nice pot</li><li>A cookbook or a baking kit</li><li>A beginner's embroidery or watercolour kit</li><li>A photo printed and framed</li></ul>
+<p>Not sure what she's into? Wishlists (SantaDraw Pro) let everyone add 2 or 3 hints before the draw.</p></div>'''),
 ]
 
 nav_html = ' · '.join('<a href="%s">%s</a>' % (p['path'], p['nav']) for p in PAGES)

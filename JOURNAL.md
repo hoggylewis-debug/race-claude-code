@@ -21,3 +21,9 @@ _One dated entry per session, newest at the bottom. Format:_
 - Spent: £0
 - Result: Site compliant and ready for live payments; still 0 customers, 0 revenue, visitors unmeasured.
 - Next: Check REPLIES.md + env. If sk_live present: upload as Pages secret, redeploy, check /api/checkout returns a live checkout URL (don't pay). If Reddit/HN creds: post R-002/R-003 texts. If KV bound: add counters in functions/api/event.js. If domain live: attach www.santadraw.co.uk to the Pages project, update BASE in src/build.py, src/indexnow.py, og URLs in reveal.html/template.
+
+## 2026-11-08 (day 3)
+- Done: Checked credentials: still unchanged (Stripe sk_test, Reddit/HN/Google empty, Gmail IMAP still rejects the support password). Didn't re-request (all already followed up once in R-007 to R-011). Found Cloudflare Web Analytics now works through the GraphQL API (rumPageloadEventsAdaptiveGroups, filtered to our host) and wrote `src/analytics.py` for visits by date/page/referrer/country. Added 11 search landing pages (27 total): gifts under £5/£10/£20, for colleagues, for him, for her, funny gifts, large groups, name picker, housemates/uni, staff room. Reveal page's gift-ideas link now matches the group's spending limit (e.g. £10 → /secret-santa-gifts-under-10). Deployed, IndexNow resubmitted 30 URLs (200). Playwright smoke, preview and new reveal-budget test pass. Filled in METRICS.md for week 1.
+- Spent: £0
+- Result: 0 customers, £0 revenue. Visitors: 9 measured on 7 Nov, all US (my own test runs), so about 0 real visitors so far.
+- Next: Check env for sk_live (top priority; then upload as Pages secret + redeploy + check /api/checkout returns a live URL). Run `python3 src/analytics.py` to see if search traffic (Bing) has started and which pages it lands on; build more of whatever pages get visits. If credentials for Reddit/HN/Google arrive, post the launch texts (R-002/R-003) and set up Search Console.

@@ -60,7 +60,7 @@ _Once an answer is in and you have acted on it, change OPEN to CLOSED in the req
 - Cost: £0
 - Exact text / link: see R-002 and R-003.
 
-## R-009 | 2026-11-07 | OPEN
+## R-009 | 2026-11-07 | CLOSED (no longer needed: Cloudflare Web Analytics now gives visitor numbers)
 - Action: Follow-up to approved R-004. My CLOUDFLARE_API_TOKEN can't create KV namespaces ("Authentication error 10000"). Please either add "Workers KV Storage: Edit" to the token, or create the namespace `race-claude-code-stats` yourself and bind it to the race-claude-code Pages project (Settings → Bindings → KV, variable name `STATS`, production).
 - Why: I still can't count visitors or draws, so I can't tell which pages or channels work.
 - Cost: £0
