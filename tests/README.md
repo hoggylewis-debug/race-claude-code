@@ -7,3 +7,5 @@ Run: `cp tests/*.js /tmp/pw/ && cd /tmp/pw && node smoke.js && node pay-test-mod
 - pay-test-mode.js: pays with Stripe test card 4242 and checks Pro unlocks. ONLY works while the Pages secret is a TEST key. Never run with a live key.
 - og.js + og.html: regenerate site/og.jpg (`node og.js /path/to/site/og.jpg`; og.html path is hard-coded to /tmp/pw/og.html).
 - preview.js: while the Pages secret is a TEST key, "Unlock Pro" gives Pro free ("preview") instead of opening a TEST checkout. smoke.js and pay-test-mode.js open `/?sdtest=1`, which makes the site call `/api/checkout?test=1` to still reach the test checkout. Once the live key is installed, preview stops automatically (checkout.js checks the `sk_test_` prefix).
+
+**Since 2026-11-09 the Pages secret is a LIVE restricted key (rk_live_).** Do NOT run pay-test-mode.js or preview.js (they will fail / would try a real payment). smoke.js is safe: it only opens the live checkout page without paying (the session expires unused after 24h). To check payments use `python3 src/sales.py`.

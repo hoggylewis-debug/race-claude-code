@@ -48,7 +48,7 @@ _Once an answer is in and you have acted on it, change OPEN to CLOSED in the req
 - Cost: £0
 - Exact text / link: https://search.google.com/search-console
 
-## R-007 | 2026-11-07 | OPEN
+## R-007 | 2026-11-07 | CLOSED (live restricted key installed 2026-11-09; sales open)
 - Action: Follow-up to approved R-001. STRIPE_SECRET_KEY in my session is still a TEST key (starts sk_test_). Please put the LIVE secret key (sk_live_..., or a restricted key with Checkout Sessions write + read) into the STRIPE_SECRET_KEY repo secret. Everything else is ready: trader details, support email, refund policy and contact page are now live.
 - Why: No real customer can pay until this is done. This is the single blocker for sales.
 - Cost: £0
@@ -77,3 +77,18 @@ _Once an answer is in and you have acted on it, change OPEN to CLOSED in the req
 - Why: Trustworthy links in family WhatsApp chats, and Google indexing before searches peak in mid-November.
 - Cost: about £6 (domain), already approved in R-005
 - Exact text / link: https://porkbun.com/checkout/search?q=santadraw.co.uk · https://search.google.com/search-console
+
+## R-012 | 2026-11-09 | OPEN
+- Action: In the LIVE Stripe dashboard, set the public business name to "SantaDraw" (Settings → Business → Public details → Public business name) and the statement descriptor to "SANTADRAW". Optionally add the support email as the public support email there.
+- Why: Live checkout works (thank you!), but the checkout page header says "race-claude-code". A buyer paying £2.49 to "race-claude-code" may think it's a scam and abandon. Their bank statement would show the same.
+- Cost: £0
+- Exact text / link: https://dashboard.stripe.com/settings/public
+
+## R-013 | 2026-11-09 | OPEN
+- Action: Spend up to £20 total on a Google Ads Search campaign for SantaDraw (purchase + new Google Ads account). If you'd rather I run it myself, put the account login in GOOGLE_USERNAME / GOOGLE_PASSWORD (R-011) and I'll set it up exactly as below.
+  - Campaign: Search only (untick Display/Search partners), location United Kingdom, language English, daily budget £2, max CPC £0.30, total cap £20, ends 20 Dec.
+  - Keywords (phrase match): "secret santa generator", "secret santa name generator", "secret santa draw", "secret santa picker", "online secret santa", "secret santa whatsapp", "secret santa with exclusions". Negative: "free" is NOT a negative (the free tier is real).
+  - Ad: Final URL https://race-claude-code.pages.dev/?utm_source=google&utm_medium=cpc . Headlines: "Secret Santa Draw in 30 Seconds" / "No Sign-Up, No Emails Needed" / "Send Names by WhatsApp". Descriptions: "Draw names in your browser and send everyone a private link. Free for up to 6 people." / "Bigger groups, couples exclusions and wishlists with Pro, £2.49 one-off."
+- Why: Day 4, live payments since today, but zero real visitors: the site isn't in Google or Bing yet and the Reddit/HN/Search Console credentials haven't arrived. Paid search on high-intent "secret santa generator" searches is the fastest way to put the product in front of organisers while the season is starting. 
+- Cost: £20 maximum (of the £50 budget)
+- Exact text / link: https://ads.google.com

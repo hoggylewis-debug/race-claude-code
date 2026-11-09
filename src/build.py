@@ -309,6 +309,58 @@ PAGES = [
 <h2>Under £20</h2>
 <ul><li>A cosy throw or bed socks</li><li>A houseplant in a nice pot</li><li>A cookbook or a baking kit</li><li>A beginner's embroidery or watercolour kit</li><li>A photo printed and framed</li></ul>
 <p>Not sure what she's into? Wishlists (SantaDraw Pro) let everyone add 2 or 3 hints before the draw.</p></div>'''),
+ dict(path='/kris-kindle-generator', file='kris-kindle-generator.html', nav='Kris Kindle generator',
+  title='Kris Kindle Generator: draw names online, no sign-up | SantaDraw',
+  desc='Free Kris Kindle name generator for family, friends and work. Draw names in 30 seconds and send everyone a private link by WhatsApp or text. No emails needed.',
+  h1='🎄 Kris Kindle generator',
+  sub='Doing Kris Kindle this year? Draw names here in 30 seconds,<br>then send each person a private link by WhatsApp or text.',
+  extra='''<div class="card"><h2 style="margin-top:0">Kris Kindle, Secret Santa: same thing</h2>
+<p>In Ireland it's usually called <strong>Kris Kindle</strong> (from the German <em>Christkindl</em>); in the UK it's Secret Santa. Either way, everyone's name goes in the hat, everyone draws one person, and nobody knows who's buying for whom until the day.</p>
+<ul><li><strong>Type everyone's names</strong> above, set the budget (€10 or €20 is common) and the date.</li>
+<li><strong>Press Draw names.</strong> Each person gets their own private link that shows only their match.</li>
+<li><strong>Send the links</strong> one by one on WhatsApp, so nobody can peek.</li></ul>
+<p>Free for up to 6 people. For bigger families or offices, couples exclusions and wishlists, SantaDraw Pro is a one-off £2.49 (about €3).</p></div>'''),
+ dict(path='/secret-santa-app', file='secret-santa-app.html', nav='Secret Santa without an app',
+  title='Secret Santa App? You don\'t need one: draw names in your browser | SantaDraw',
+  desc='Looking for a Secret Santa app? SantaDraw works in any phone browser with nothing to install and no accounts. Draw names and send private links by WhatsApp.',
+  h1='📱 Secret Santa, no app needed',
+  sub='Nothing to download, nobody to sign up. SantaDraw works in any phone browser:<br>draw names and send everyone a private link.',
+  extra='''<div class="card"><h2 style="margin-top:0">Why skip the app?</h2>
+<ul><li><strong>Gran doesn't have to install anything.</strong> Everyone just taps a link.</li>
+<li><strong>No accounts or email addresses.</strong> The draw happens on your phone, and each result is scrambled inside that person's link. Nothing is stored on a server.</li>
+<li><strong>Works on iPhone, Android, tablets and laptops.</strong> Tip: on your phone, use "Add to Home Screen" to keep it handy.</li></ul>
+<p>Free for up to 6 people. SantaDraw Pro (£2.49 once) adds bigger groups, exclusions, wishlists and printable cards.</p></div>'''),
+ dict(path='/secret-santa-for-couples', file='secret-santa-for-couples.html', nav='Secret Santa for couples',
+  title='Secret Santa with Couples: make sure partners don\'t draw each other | SantaDraw',
+  desc='Running Secret Santa with couples in the group? Stop partners drawing each other with exclusions, or draw couples as pairs. Free name draw, private links.',
+  h1='💑 Secret Santa with couples',
+  sub='Partners already buy for each other. Add them as exclusions<br>and SantaDraw makes sure they never match.',
+  extra='''<div class="card"><h2 style="margin-top:0">Two ways to handle couples</h2>
+<ol><li><strong>Exclude partners (most popular).</strong> Everyone is drawn as an individual, but each couple is listed in the Exclusions box (<code>Sam, Alex</code>) so they never get each other. This needs SantaDraw Pro (£2.49 once).</li>
+<li><strong>Draw couples as one name.</strong> Enter "Sam &amp; Alex" as a single name. Each couple buys one gift for another couple. Fewer, nicer presents, and it's free for up to 6 names.</li></ol>
+<p>Lots of exclusions in a small group can make a fair draw impossible; SantaDraw tells you if so, rather than breaking a rule.</p>
+<p>See also: <a href="/secret-santa-with-exclusions">Secret Santa with exclusions</a> and <a href="/family-secret-santa">family Secret Santa</a>.</p></div>'''),
+ dict(path='/secret-santa-gifts-for-teenagers', file='secret-santa-gifts-for-teenagers.html', nav='Secret Santa gifts for teenagers',
+  title='Secret Santa Gifts for Teenagers: ideas they\'ll actually like | SantaDraw',
+  desc='Secret Santa gift ideas for teenagers under £10 and £20, for family Secret Santas where the teens are in the draw too. Plus a free name generator.',
+  h1='🎧 Secret Santa gifts for teenagers',
+  sub='Drew your teenage nephew or cousin in the family Secret Santa?<br>Ideas that won\'t get an eye-roll, plus a free name draw.',
+  extra='''<div class="card"><h2 style="margin-top:0">Under £10</h2>
+<ul><li>Fun phone grip or case</li><li>A big bag of their favourite sweets</li><li>LED strip lights for their room</li><li>A gaming gift card (check which console)</li><li>A mini desk fan or hand warmer</li></ul>
+<h2>Under £20</h2>
+<ul><li>Wireless earbuds (budget brands are fine)</li><li>A hoodie from a brand they like</li><li>A cinema voucher for two</li><li>A board game they can play with friends</li><li>A Polaroid-style film pack</li></ul>
+<p>The safest bet is asking: with wishlists (SantaDraw Pro), everyone adds 2 or 3 hints and their Santa sees them on their private link.</p></div>'''),
+ dict(path='/christmas-name-draw', file='christmas-name-draw.html', nav='Christmas name draw',
+  title='Christmas Name Draw Online: free, fair and private | SantaDraw',
+  desc='Do your Christmas name draw online. Type everyone in, press draw, and send each person a private link. Nobody draws themselves, nobody sees the others. Free.',
+  h1='🎄 Christmas name draw',
+  sub='Like names from a hat, but nobody draws themselves and nobody needs to be in the same room.<br>Free, and done in 30 seconds.',
+  extra='''<div class="card"><h2 style="margin-top:0">Why draw names online?</h2>
+<ul><li><strong>Nobody gets themselves</strong>, so no redraws.</li>
+<li><strong>Works when the family is spread out.</strong> Send each private link by WhatsApp or text.</li>
+<li><strong>The organiser can play too.</strong> You only see the links, not who got whom.</li>
+<li><strong>Rules built in (Pro):</strong> couples can't draw each other, and wishlists travel with each link.</li></ul></div>'''),
+
 ]
 
 nav_html = ' · '.join('<a href="%s">%s</a>' % (p['path'], p['nav']) for p in PAGES)

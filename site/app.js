@@ -68,7 +68,7 @@ function upsell(text){
   b.textContent = 'Unlock Pro for £2.49 (one-off)'; b.onclick = buy;
   m.appendChild(document.createElement('br')); m.appendChild(b);
   var s = document.createElement('div'); s.className = 'small'; s.style.fontWeight = '400';
-  s.textContent = 'Your names are kept while you pay. Full refund if it doesn\'t work for you.'; m.appendChild(s);
+  s.textContent = 'Your names are kept while you pay. Secure checkout by Stripe (it may show our project name, race-claude-code). Full refund if it doesn\'t work for you.'; m.appendChild(s);
 }
 
 function doDraw(){
@@ -173,7 +173,7 @@ function checkReturn(){
   if (!sid) return;
   $('proStatus').textContent = 'Confirming payment…';
   fetch('/api/verify?session_id=' + encodeURIComponent(sid)).then(function(r){ return r.json(); }).then(function(j){
-    if (j.paid){ try { localStorage.setItem('sd_pro','1'); } catch(e){} updateProUI(); }
+    if (j.paid){ try { localStorage.setItem('sd_pro','1'); localStorage.removeItem('sd_preview'); } catch(e){} updateProUI(); }
     else $('proStatus').textContent = 'We couldn\'t confirm that payment yet. Refresh in a moment.';
     history.replaceState(null,'','/');
   }).catch(function(){ $('proStatus').textContent = 'Couldn\'t confirm payment. Refresh to retry.'; });

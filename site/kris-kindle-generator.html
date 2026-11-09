@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kris Kindle Generator: draw names online, no sign-up | SantaDraw</title>
+<meta name="description" content="Free Kris Kindle name generator for family, friends and work. Draw names in 30 seconds and send everyone a private link by WhatsApp or text. No emails needed.">
+<link rel="canonical" href="https://race-claude-code.pages.dev/kris-kindle-generator">
+<meta property="og:title" content="Kris Kindle Generator: draw names online, no sign-up | SantaDraw">
+<meta property="og:description" content="Free Kris Kindle name generator for family, friends and work. Draw names in 30 seconds and send everyone a private link by WhatsApp or text. No emails needed.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://race-claude-code.pages.dev/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎁</text></svg>">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is SantaDraw free?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Drawing names for up to 6 people is free, with no sign-up. SantaDraw Pro is a one-off \u00a32.49 for bigger groups, exclusions, wishlists and printable cards."}}, {"@type": "Question", "name": "Do people need to sign up or give an email address?", "acceptedAnswer": {"@type": "Answer", "text": "No. Nobody needs an account or an email address. You send each person their private link however you like: WhatsApp, text, Messenger, Slack or email."}}, {"@type": "Question", "name": "Can the organiser take part too?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Put your own name in the list. Just don't open anyone else's link, and you'll get a surprise like everyone else."}}, {"@type": "Question", "name": "Do you store our names?", "acceptedAnswer": {"@type": "Answer", "text": "No. The draw happens in your browser and each result is scrambled inside its own link. Nothing about your group is saved on our servers."}}, {"@type": "Question", "name": "What if someone loses their link?", "acceptedAnswer": {"@type": "Answer", "text": "Press \"Copy all links\" after the draw and keep the list somewhere private, so you can resend a lost link."}}, {"@type": "Question", "name": "Can I stop couples drawing each other?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, with Pro: add each couple as an exclusion and they'll never be matched together."}}]}</script>
+</head>
+<body>
+<header class="hero">
+  <h1>🎄 Kris Kindle generator</h1>
+  <p>Doing Kris Kindle this year? Draw names here in 30 seconds,<br>then send each person a private link by WhatsApp or text.</p>
+</header>
+<main>
+<div class="card" id="formCard">
+  <div class="row">
+    <div><label for="group">Group name</label><input id="group" placeholder="e.g. Smith family Christmas" maxlength="60"></div>
+    <div><label for="budget">Spending limit</label><input id="budget" placeholder="e.g. £20" maxlength="20"></div>
+  </div>
+  <div class="row">
+    <div><label for="date">Exchange date</label><input id="date" placeholder="e.g. 25 December" maxlength="40"></div>
+  </div>
+  <label for="names">Names (one per line)</label>
+  <textarea id="names" placeholder="Alice&#10;Bob&#10;Charlie&#10;Dana"></textarea>
+  <p class="small">Free: up to 6 people. <span class="badge">PRO</span> unlocks bigger groups.</p>
+
+  <div id="proSection">
+    <label>Exclusions <span class="badge">PRO</span></label>
+    <p class="small">Stop people drawing each other, e.g. couples. One pair per line: <code>Alice, Bob</code></p>
+    <textarea id="excl" style="min-height:80px" placeholder="Alice, Bob"></textarea>
+    <label>Wishlists / gift hints <span class="badge">PRO</span></label>
+    <p class="small">Optional. One per line: <code>Alice: books, dark chocolate</code>. The person who draws Alice sees her hints.</p>
+    <textarea id="wish" style="min-height:80px" placeholder="Alice: books, dark chocolate"></textarea>
+  </div>
+  <p id="msg" class="err"></p>
+  <button id="drawBtn">Draw names 🎲</button>
+</div>
+
+<div class="card" id="proCard">
+  <h2 style="margin-top:0">SantaDraw Pro <span class="badge">£2.49 one-off</span></h2>
+  <ul class="ticks">
+    <li>Unlimited group size (offices, big families)</li>
+    <li>Exclusions: couples and housemates never draw each other</li>
+    <li>Wishlists: each person sees their recipient's gift hints</li>
+    <li>Printable cards for drawing in person</li>
+  </ul>
+  <p class="small">One payment, no subscription, no account. Unlocks Pro in this browser. Paid securely through Stripe (the checkout may show our project name, race-claude-code). Full refund if it doesn't work for you.</p>
+  <button class="pro" id="buyBtn">Unlock Pro for £2.49</button>
+  <p id="proStatus" class="small"></p>
+</div>
+
+<div class="card" id="results" hidden>
+  <h2 style="margin-top:0">Done! Send each person their link</h2>
+  <p class="small">Each link only reveals who <em>that</em> person is buying for. Don't open other people's links if you want it to stay a surprise for you too.</p>
+  <div id="links"></div>
+  <p class="noprint" style="margin-top:16px">
+    <button class="secondary" id="copyAll">Copy all links</button>
+    <button class="secondary" id="printBtn">Print cards <span class="badge">PRO</span></button>
+    <button class="secondary" id="redraw">Draw again</button>
+  </p>
+  <p class="small">Tip: keep this page open or use "Copy all links" and save them somewhere private in case someone loses theirs.</p>
+</div>
+
+<div id="printArea" hidden></div>
+
+<div class="card">
+  <h2 style="margin-top:0">How it works</h2>
+  <ol>
+    <li>Type everyone's names. Add a spending limit and date if you like.</li>
+    <li>Press <strong>Draw names</strong>. Nobody gets themselves.</li>
+    <li>Send each person their private link. They tap it to see who they're buying for.</li>
+  </ol>
+  <p class="small">Names never leave your device: the draw happens in your browser and each person's result is scrambled inside their link. We don't store your group.</p>
+</div>
+<div class="card"><h2 style="margin-top:0">Kris Kindle, Secret Santa: same thing</h2>
+<p>In Ireland it's usually called <strong>Kris Kindle</strong> (from the German <em>Christkindl</em>); in the UK it's Secret Santa. Either way, everyone's name goes in the hat, everyone draws one person, and nobody knows who's buying for whom until the day.</p>
+<ul><li><strong>Type everyone's names</strong> above, set the budget (€10 or €20 is common) and the date.</li>
+<li><strong>Press Draw names.</strong> Each person gets their own private link that shows only their match.</li>
+<li><strong>Send the links</strong> one by one on WhatsApp, so nobody can peek.</li></ul>
+<p>Free for up to 6 people. For bigger families or offices, couples exclusions and wishlists, SantaDraw Pro is a one-off £2.49 (about €3).</p></div>
+<div class="card"><h2 style="margin-top:0">Questions</h2><h3 style="margin-bottom:4px">Is SantaDraw free?</h3><p style="margin-top:0">Yes. Drawing names for up to 6 people is free, with no sign-up. SantaDraw Pro is a one-off £2.49 for bigger groups, exclusions, wishlists and printable cards.</p><h3 style="margin-bottom:4px">Do people need to sign up or give an email address?</h3><p style="margin-top:0">No. Nobody needs an account or an email address. You send each person their private link however you like: WhatsApp, text, Messenger, Slack or email.</p><h3 style="margin-bottom:4px">Can the organiser take part too?</h3><p style="margin-top:0">Yes. Put your own name in the list. Just don't open anyone else's link, and you'll get a surprise like everyone else.</p><h3 style="margin-bottom:4px">Do you store our names?</h3><p style="margin-top:0">No. The draw happens in your browser and each result is scrambled inside its own link. Nothing about your group is saved on our servers.</p><h3 style="margin-bottom:4px">What if someone loses their link?</h3><p style="margin-top:0">Press "Copy all links" after the draw and keep the list somewhere private, so you can resend a lost link.</p><h3 style="margin-bottom:4px">Can I stop couples drawing each other?</h3><p style="margin-top:0">Yes, with Pro: add each couple as an exclusion and they'll never be matched together.</p></div>
+<div class="card small"><strong>More:</strong> <a href="/">Secret Santa generator</a> · <a href="/secret-santa-whatsapp">Secret Santa on WhatsApp</a> · <a href="/secret-santa-with-exclusions">Secret Santa with exclusions (couples)</a> · <a href="/office-secret-santa">Office Secret Santa</a> · <a href="/virtual-secret-santa">Virtual Secret Santa</a> · <a href="/how-to-organise-secret-santa">How to organise Secret Santa</a> · <a href="/family-secret-santa">Family Secret Santa</a> · <a href="/draw-names-from-a-hat">Draw names from a hat online</a> · <a href="/secret-santa-gift-ideas">Secret Santa gift ideas</a> · <a href="/secret-santa-for-kids">Secret Santa for kids and classes</a> · <a href="/secret-santa-rules">Secret Santa rules</a> · <a href="/secret-santa-with-wishlist">Secret Santa with wishlists</a> · <a href="/secret-santa-without-email">Secret Santa without email addresses</a> · <a href="/secret-santa-for-friends">Secret Santa for friends</a> · <a href="/printable-secret-santa-cards">Printable Secret Santa cards</a> · <a href="/secret-santa-message">Secret Santa invite messages</a> · <a href="/secret-santa-gifts-under-5">Secret Santa gifts under £5</a> · <a href="/secret-santa-gifts-under-10">Secret Santa gifts under £10</a> · <a href="/secret-santa-gifts-under-20">Secret Santa gifts under £20</a> · <a href="/secret-santa-for-large-groups">Secret Santa for large groups</a> · <a href="/secret-santa-name-picker">Secret Santa name picker</a> · <a href="/secret-santa-for-housemates">Secret Santa for housemates and uni</a> · <a href="/secret-santa-for-teachers">Staff room Secret Santa</a> · <a href="/funny-secret-santa-gifts">Funny Secret Santa gifts</a> · <a href="/secret-santa-gifts-for-colleagues">Secret Santa gifts for colleagues</a> · <a href="/secret-santa-gifts-for-him">Secret Santa gifts for him</a> · <a href="/secret-santa-gifts-for-her">Secret Santa gifts for her</a> · <a href="/kris-kindle-generator">Kris Kindle generator</a> · <a href="/secret-santa-app">Secret Santa without an app</a> · <a href="/secret-santa-for-couples">Secret Santa for couples</a> · <a href="/secret-santa-gifts-for-teenagers">Secret Santa gifts for teenagers</a> · <a href="/christmas-name-draw">Christmas name draw</a></div>
+</main>
+<footer>
+  Built and run by an AI agent (Claude Code) as part of a <a href="https://github.com/hoggylewis-debug/race-claude-code">public experiment</a>, the £50 AI Startup Race.<br>
+  <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms &amp; refunds</a> · <a href="/contact.html">Contact</a>
+</footer>
+<script src="/app.js"></script>
+</body>
+</html>
