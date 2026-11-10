@@ -61,14 +61,27 @@ function draw(names, pairs){
 function rand(){ var a = new Uint32Array(1); crypto.getRandomValues(a); return a[0] / 4294967296; }
 
 var lastResult = null;
+var groupUrl = '';
+function groupMsg(){
+  var g = lastResult && lastResult[0].meta.g;
+  return '🎅 Our Secret Santa' + (g ? ' for ' + g : '') + ' has been drawn! Tap the link, choose your own name and see who you\'re buying for. No peeking at anyone else\'s! ' + groupUrl;
+}
+var SALES_CLOSED = false;
+function checkSales(){
+  fetch('/api/status').then(function(r){ return r.json(); }).then(function(j){
+    if (j.sales) return;
+    SALES_CLOSED = true;
+    if (!isPro()){ $('buyBtn').textContent = 'Unlock Pro free for now'; $('proStatus').textContent = 'Card payments are paused at the moment, so Pro is free in this browser for now.'; }
+  }).catch(function(){});
+}
 
 function upsell(text){
   var m = $('msg'); m.textContent = text + ' ';
   var b = document.createElement('button'); b.className = 'pro'; b.style.marginTop = '8px';
-  b.textContent = 'Unlock Pro for £2.49 (one-off)'; b.onclick = buy;
+  b.textContent = SALES_CLOSED ? 'Unlock Pro free for now' : 'Unlock Pro for £2.49 (one-off)'; b.onclick = buy;
   m.appendChild(document.createElement('br')); m.appendChild(b);
   var s = document.createElement('div'); s.className = 'small'; s.style.fontWeight = '400';
-  s.textContent = 'Your names are kept while you pay. Secure checkout by Stripe (it may show our project name, race-claude-code). Full refund if it doesn\'t work for you.'; m.appendChild(s);
+  s.textContent = SALES_CLOSED ? 'Card payments are paused at the moment, so Pro is free in this browser. Your names are kept.' : 'Your names are kept while you pay. Secure checkout by Stripe (it may show our project name, race-claude-code). Full refund if it doesn\'t work for you.'; m.appendChild(s);
 }
 
 function doDraw(){
@@ -93,6 +106,8 @@ function doDraw(){
     if (wish[res[n]]) o.w = wish[res[n]];
     return { name:n, to:res[n], url: base + enc(o), meta: meta, wish: wish[res[n]] || '' };
   });
+  var gp = { p: lastResult.map(function(r){ var a=[r.name, r.to]; if (r.wish) a.push(r.wish); return a; }), g:meta.g, b:meta.b, d:meta.d };
+  groupUrl = base + enc(gp);
   renderLinks();
   try { localStorage.removeItem('sd_form'); } catch(e){}
   if (window.plausible) plausible('draw', {props:{n:names.length, pro:pro}});
@@ -101,6 +116,12 @@ function doDraw(){
 
 function renderLinks(){
   var box = $('links'); box.innerHTML = '';
+  var gb = $('groupLink');
+  if (gb){
+    $('groupWa').href = 'https://wa.me/?text=' + encodeURIComponent(groupMsg());
+    $('groupCopy').onclick = function(){ copy(groupMsg(), $('groupCopy')); };
+    if (navigator.share){ $('groupShare').hidden = false; $('groupShare').onclick = function(){ navigator.share({text: groupMsg()}).catch(function(){}); }; }
+  }
   lastResult.forEach(function(r){
     var row = document.createElement('div'); row.className = 'link-row';
     var s = document.createElement('strong'); s.textContent = r.name; row.appendChild(s);
@@ -157,7 +178,7 @@ function buy(){
   saveForm();
   $('buyBtn').disabled = true; $('proStatus').textContent = 'Opening secure checkout…';
   fetch('/api/checkout' + (/sdtest=1/.test(location.search) ? '?test=1' : ''), {method:'POST'}).then(function(r){ return r.json(); }).then(function(j){
-    if (j.preview){ try { localStorage.setItem('sd_pro','1'); localStorage.setItem('sd_preview','1'); } catch(e){} updateProUI(); $('msg').textContent=''; $('proStatus').innerHTML = '<span class="ok">✓ Card payments aren\'t switched on yet, so Pro is free in this browser for now. Enjoy, and tell a friend!</span>'; return; }
+    if (j.preview){ try { localStorage.setItem('sd_pro','1'); localStorage.setItem('sd_preview','1'); } catch(e){} updateProUI(); $('msg').textContent=''; $('proStatus').innerHTML = '<span class="ok">✓ Card payments are paused at the moment, so Pro is free in this browser for now. Enjoy, and tell a friend!</span>'; return; }
     if (j.url) location.href = j.url; else throw new Error(j.error || 'checkout failed');
   }).catch(function(){ $('buyBtn').disabled=false; $('proStatus').textContent='Sorry, checkout is unavailable right now. Please try again in a minute.'; });
 }
@@ -181,6 +202,7 @@ function checkReturn(){
 
 $('drawBtn').onclick = doDraw;
 $('buyBtn').onclick = buy;
+checkSales();
 $('printBtn').onclick = printCards;
 $('redraw').onclick = function(){ $('results').hidden = true; $('formCard').scrollIntoView({behavior:'smooth'}); };
 $('copyAll').onclick = function(){ if (lastResult) copy(lastResult.map(function(r){ return r.name + ': ' + r.url; }).join('\n'), $('copyAll')); };

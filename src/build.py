@@ -4,7 +4,7 @@ import os, datetime
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE = 'https://race-claude-code.pages.dev'
 T = open(os.path.join(ROOT, 'src/template.html')).read()
-SUB = 'Secret Santa names drawn in 30 seconds. No sign-up. No email addresses.<br>Everyone gets a private link you can send by WhatsApp, text or Messenger.'
+SUB = 'Secret Santa names drawn in 30 seconds. No sign-up. No email addresses.<br>Post one link in your WhatsApp group, or send everyone their own private link.'
 
 PAGES = [
  dict(path='/', file='index.html', nav='Secret Santa generator',
@@ -21,7 +21,7 @@ PAGES = [
 <li>Next to each name, tap <strong>WhatsApp</strong>. It opens a ready-written message with that person's private link. Choose the person and send.</li>
 <li>Each person taps their link to see who they're buying for. Their link shows only their own match.</li>
 <li>Post the spending limit and date in the group chat, and you're done.</li></ol>
-<p>Tip: don't post the links in the group chat itself, send each one privately, or everyone could open everyone's link.</p></div>'''),
+<p><strong>Even quicker: one link for the whole group.</strong> After the draw, tap <strong>Send to WhatsApp group</strong> and post a single link in your group chat. Everyone taps it, chooses their own name and sees only who they're buying for. Each phone can only pick one name, so it works on trust, like pulling names from a hat. For a strictly private draw, send the individual links privately instead.</p></div>'''),
  dict(path='/secret-santa-with-exclusions', file='secret-santa-with-exclusions.html', nav='Secret Santa with exclusions (couples)',
   title='Secret Santa Generator with Exclusions: stop couples drawing each other | SantaDraw',
   desc='A Secret Santa name draw with exclusions, so couples, housemates or last year\'s pairs never draw each other. No sign-up, private links for everyone.',
@@ -360,6 +360,21 @@ PAGES = [
 <li><strong>Works when the family is spread out.</strong> Send each private link by WhatsApp or text.</li>
 <li><strong>The organiser can play too.</strong> You only see the links, not who got whom.</li>
 <li><strong>Rules built in (Pro):</strong> couples can't draw each other, and wishlists travel with each link.</li></ul></div>'''),
+
+ dict(path='/secret-santa-group-chat', file='secret-santa-group-chat.html', nav='Secret Santa in a group chat (one link)',
+  title='Secret Santa in a Group Chat: one link, everyone picks their name | SantaDraw',
+  desc='Run Secret Santa with one link in your WhatsApp, Messenger or Teams group chat. Everyone taps it, picks their own name and sees only their match. Free, no sign-up.',
+  h1='🎅 Secret Santa with one group-chat link',
+  sub='Draw names, post a single link in the group chat, and let everyone tap their own name.<br>No app, no sign-up, no email addresses.',
+  extra='''<div class="card"><h2 style="margin-top:0">How the group link works</h2>
+<ol><li>Type everyone's names above and press <strong>Draw names</strong>.</li>
+<li>Tap <strong>Send to WhatsApp group</strong> (or <strong>Copy group link</strong> for Messenger, Teams, Slack or iMessage) and post it in your group chat.</li>
+<li>Each person taps the link, chooses their own name and taps the present to see who they're buying for.</li>
+<li>Their phone is then locked to that name, so tapping the link again shows the same match, and nobody can pick a second name on that phone.</li></ol>
+<h3>Is it private?</h3>
+<p>The draw happens in your browser and the results are scrambled inside the link, so nothing is stored on our servers. The group link works on trust, like pulling names from a hat: someone determined to peek could use a second phone. If your group needs it strictly secret, use the individual private links instead; SantaDraw gives you both after every draw.</p>
+<h3>Bigger groups and couples</h3>
+<p>Free for up to 6 people. SantaDraw Pro (a one-off £2.49) adds any group size, exclusions so couples don't draw each other, wishlists and printable cards.</p></div>'''),
 
 ]
 

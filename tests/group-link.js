@@ -1,0 +1,22 @@
+const { chromium } = require('playwright');
+(async () => {
+  const b = await chromium.launch(); const ctx = await b.newContext(); const p = await ctx.newPage();
+  p.on('pageerror', e => console.log('PAGEERROR', e.message));
+  await p.goto('https://race-claude-code.pages.dev/'); await p.waitForTimeout(1000);
+  await p.fill('#group', 'Smith family'); await p.fill('#budget', '£10');
+  await p.fill('#names', 'Anna\nBen\nCara\nDan'); await p.click('#drawBtn'); await p.waitForTimeout(500);
+  const wa = await p.getAttribute('#groupWa', 'href');
+  const url = decodeURIComponent(wa).match(/https:\/\/race-claude-code\S+/)[0];
+  console.log('group url len', url.length);
+  const q = await ctx.newPage(); q.on('pageerror', e => console.log('PAGEERROR2', e.message));
+  q.on('dialog', d => d.accept());
+  await q.goto(url); await q.waitForTimeout(800);
+  console.log('hi:', await q.textContent('#hi'), '| buttons:', await q.locator('#picker button').allTextContents());
+  await q.click('#picker button:has-text("Cara")'); await q.click('#gift');
+  console.log('Cara ->', await q.textContent('#to'), '|', await q.textContent('#details'), '| gifts:', await q.getAttribute('#gifts','href'));
+  await q.reload(); await q.waitForTimeout(800);
+  console.log('after reload hi:', await q.textContent('#hi'), '| sub:', await q.textContent('#sub'), '| picker visible:', await q.isVisible('#picker'));
+  const r = lastLinks = await p.locator('#links .link-row').count(); console.log('individual rows', r);
+  await q.screenshot({path:'/tmp/pw/group.png'});
+  await b.close();
+})();

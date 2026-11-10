@@ -2,14 +2,16 @@
 
 _Rewrite this file at the end of every session so a fresh session can carry on from it alone._
 
-Last updated: 2026-11-09 (end of day 4)
+Last updated: 2026-11-10 (end of day 5)
 
 ## Business
 - Idea: **SantaDraw**, a Secret Santa name-draw web app. No sign-up, no emails: the draw runs in the browser, and each person's result is XOR-scrambled + base64url into their own link (`/reveal#...`), sent by WhatsApp/text.
 - Target customer: UK organisers of family, friends and office Secret Santas (Nov to mid-Dec).
+- Sharing: after a draw the organiser gets ONE group-chat link (reveal page asks "Who are you?", locks that phone to a name via localStorage `sd_claim_<hash>`) plus individual private links. Group payload = `{p:[[name,to,wish?]...],g,b,d}`.
 - Offer and price: Free for up to 6 people. **SantaDraw Pro £2.49 one-off** unlocks groups >6, exclusions (couples), wishlists/gift hints, printable cards. Unlock is stored in the buyer's browser (localStorage `sd_pro`). Full refund on request (support email on /contact).
-- **LIVE PAYMENTS ON since 2026-11-09.** Pages secret STRIPE_SECRET_KEY = live restricted key (rk_live_, from the session env). Checkout header shows merchant "race-claude-code" until Lewis renames it (R-012); buy-button text explains this. (Old free-preview code path in checkout.js only triggers for `sk_test_` keys, so it is dormant.)
-- Live URLs: https://race-claude-code.pages.dev (+ /secret-santa-whatsapp, /secret-santa-with-exclusions, /office-secret-santa, /virtual-secret-santa, /family-secret-santa, /draw-names-from-a-hat, /how-to-organise-secret-santa, /secret-santa-gift-ideas, /secret-santa-for-kids, /secret-santa-rules, /secret-santa-with-wishlist, /secret-santa-without-email, /secret-santa-for-friends, /printable-secret-santa-cards, /secret-santa-message, /secret-santa-gifts-under-5, /secret-santa-gifts-under-10, /secret-santa-gifts-under-20, /secret-santa-for-large-groups, /secret-santa-name-picker, /secret-santa-for-housemates, /secret-santa-for-teachers, /funny-secret-santa-gifts, /secret-santa-gifts-for-colleagues, /secret-santa-gifts-for-him, /secret-santa-gifts-for-her, /kris-kindle-generator, /secret-santa-app, /secret-santa-for-couples, /secret-santa-gifts-for-teenagers, /christmas-name-draw, /privacy, /terms, /contact, /reveal)
+- **SALES CLOSED since 2026-11-10** because the support mailbox IMAP login fails (OPERATOR.md: keep checkout closed until it works). Switch = Pages secret `SALES_OPEN` ("1" open, anything else closed); set it with `python3 src/support_check.py` at the START OF EVERY SESSION (tests IMAP, checks published support address, sets the secret) and then redeploy. While closed, checkout.js returns `{preview:true, closed:true}` and "Unlock Pro" gives Pro free in that browser with a "card payments are paused" note; `/api/status` returns `{sales:false}`.
+- Live Stripe key installed 2026-11-09. Pages secret STRIPE_SECRET_KEY = live restricted key (rk_live_, from the session env). Checkout header shows merchant "race-claude-code" until Lewis renames it (R-012); buy-button text explains this. (Old free-preview code path in checkout.js only triggers for `sk_test_` keys, so it is dormant.)
+- Live URLs: https://race-claude-code.pages.dev (+ /secret-santa-whatsapp, /secret-santa-with-exclusions, /office-secret-santa, /virtual-secret-santa, /family-secret-santa, /draw-names-from-a-hat, /how-to-organise-secret-santa, /secret-santa-gift-ideas, /secret-santa-for-kids, /secret-santa-rules, /secret-santa-with-wishlist, /secret-santa-without-email, /secret-santa-for-friends, /printable-secret-santa-cards, /secret-santa-message, /secret-santa-gifts-under-5, /secret-santa-gifts-under-10, /secret-santa-gifts-under-20, /secret-santa-for-large-groups, /secret-santa-name-picker, /secret-santa-for-housemates, /secret-santa-for-teachers, /funny-secret-santa-gifts, /secret-santa-gifts-for-colleagues, /secret-santa-gifts-for-him, /secret-santa-gifts-for-her, /kris-kindle-generator, /secret-santa-app, /secret-santa-for-couples, /secret-santa-gifts-for-teenagers, /christmas-name-draw, /secret-santa-group-chat, /privacy, /terms, /contact, /reveal)
 
 ## How it's built
 - `site/`: static files deployed with `npx wrangler pages deploy site --project-name race-claude-code --branch main --commit-dirty=true` (run from repo root so `functions/` is included).
@@ -24,7 +26,7 @@ Last updated: 2026-11-09 (end of day 4)
 - Public GitHub README lists links to every landing page (regenerate the list by hand if pages are added).
 - Analytics: Cloudflare Web Analytics (switched on by Lewis). Run `python3 src/analytics.py [since-date]` for visits by date/page/referrer/country (only our host). My own Playwright tests show up as US visits from GitHub runners; discount them. KV counters (R-009) not needed any more.
 - Reveal page: the "gift ideas" link switches to the matching budget page (£5/£10/£20) from the link's spending limit. Test: tests/reveal-budget.js.
-- Support inbox: Gmail IMAP login with SUPPORT_EMAIL/SUPPORT_EMAIL_PASSWORD fails (needs app password, R-010). Script idea: python imaplib to imap.gmail.com, readonly.
+- Support inbox: Gmail IMAP login fails (needs app password, R-010). `src/support_check.py` does the check. Tests: tests/sales-closed.js, tests/group-link.js (copy to /tmp/pw).
 
 ## Numbers
 | Measure | Value |
@@ -37,13 +39,14 @@ Last updated: 2026-11-09 (end of day 4)
 | Budget left (£) | 50 (£20 requested for Google Ads in R-013) |
 
 ## Top 3 priorities
+0. Session start: `python3 src/support_check.py` then redeploy (sales open only if the mailbox login works).
 1. Traffic. The product and live checkout work; nobody visits. R-013 (£20 Google Ads, exact spec in REQUESTS.md): if approved, set it up / check it ran. R-008 Reddit/HN and R-011 domain + Google Search Console still waiting (approved; don't re-request).
 2. Check `python3 src/sales.py` and `python3 src/analytics.py <since>` every session; build more of whatever pages get real (non-US-runner) visits. Bing/DDG haven't indexed pages.dev yet (IndexNow submitted daily).
 3. Support inbox (R-010): can't read refund emails yet; refunds possible via src/sales.py. When the password works, check the inbox every session.
 
 ## Waiting on the referee
 - R-008 Reddit/HN credentials (env vars exist but empty)
-- R-010 Gmail app password for support inbox (current 10-char password still rejected 9 Nov)
+- R-010 Gmail app password for support inbox (10-char password still rejected 10 Nov). THIS NOW BLOCKS ALL SALES.
 - R-011 buy santadraw.co.uk + Google credentials
 - R-012 Stripe public business name → SantaDraw (filed 9 Nov)
 - R-013 £20 Google Ads search campaign (filed 9 Nov)

@@ -61,7 +61,15 @@
 </div>
 
 <div class="card" id="results" hidden>
-  <h2 style="margin-top:0">Done! Send each person their link</h2>
+  <h2 style="margin-top:0">Done! Now share the results</h2>
+  <div id="groupLink" class="group-link">
+    <p style="margin:0 0 6px"><strong>Easiest: one link for the group chat.</strong> Post it in your WhatsApp group; everyone taps it, picks their own name and sees only their match.</p>
+    <a class="btn" id="groupWa" target="_blank" rel="noopener">Send to WhatsApp group</a>
+    <button class="secondary" id="groupCopy">Copy group link</button>
+    <button class="secondary" id="groupShare" hidden>Share…</button>
+    <p class="small" style="margin:6px 0 0">Works on trust, like pulling names from a hat: each phone can only pick one name. For a strictly private draw, send individual links below instead.</p>
+  </div>
+  <h3>Or send each person their own private link</h3>
   <p class="small">Each link only reveals who <em>that</em> person is buying for. Don't open other people's links if you want it to stay a surprise for you too.</p>
   <div id="links"></div>
   <p class="noprint" style="margin-top:16px">

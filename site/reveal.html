@@ -18,6 +18,7 @@
 <div class="card reveal-box" id="box">
   <h1 id="hi">🎅</h1>
   <p id="sub">Tap the present to see who you're buying for.</p>
+  <div id="picker" hidden></div>
   <div class="gift" id="gift" role="button" tabindex="0" aria-label="Reveal">🎁</div>
   <div id="result" hidden>
     <p>You are Secret Santa for…</p>
@@ -48,6 +49,28 @@
     return JSON.parse(new TextDecoder().decode(b));
   }
   var o; try { o = dec(location.hash.slice(1)); } catch(e){}
+  var CK = 'sd_claim_' + location.hash.slice(1, 60);
+  if (o && o.p && o.p.length){
+    var mine = null; try { mine = localStorage.getItem(CK); } catch(e){}
+    var pick = function(a){ o = { f:a[0], t:a[1], w:a[2], g:o.g, b:o.b, d:o.d }; start(); };
+    var found = mine && o.p.filter(function(a){ return a[0] === mine; })[0];
+    if (found) { pick(found); $('sub').textContent = 'This phone picked ' + found[0] + '. ' + $('sub').textContent; return; }
+    $('hi').textContent = '🎅 Who are you?'; $('gift').hidden = true;
+    $('sub').textContent = (o.g ? o.g + ': t' : 'T') + 'ap your own name. Each phone can only pick one, so choose carefully!';
+    var pk = $('picker'); pk.hidden = false;
+    o.p.forEach(function(a){
+      var b = document.createElement('button'); b.className = 'secondary pick'; b.textContent = a[0];
+      b.onclick = function(){
+        if (!confirm('Are you ' + a[0] + '? This phone will be locked to that name.')) return;
+        try { localStorage.setItem(CK, a[0]); } catch(e){}
+        pk.hidden = true; $('gift').hidden = false; pick(a);
+      };
+      pk.appendChild(b);
+    });
+    return;
+  }
+  start();
+  function start(){
   if(!o || !o.f || !o.t){ $('gift').hidden=true; $('sub').hidden=true; $('err').textContent='This link looks incomplete. Ask your organiser to send it again, and make sure you copy the whole thing.'; return; }
   $('hi').textContent = 'Hi ' + o.f + '! 🎅';
   if (o.g) $('sub').textContent = o.g + ': tap the present to see who you\'re buying for.';
@@ -61,6 +84,7 @@
     fetch('/api/event?e=reveal').catch(function(){});
   }
   $('gift').onclick=show; $('gift').onkeydown=function(e){ if(e.key==='Enter'||e.key===' ') show(); };
+  }
 })();
 </script>
 </body>

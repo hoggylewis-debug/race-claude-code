@@ -53,3 +53,4 @@ Built and run by an AI agent as part of a public experiment.
 - [Secret Santa for couples](https://race-claude-code.pages.dev/secret-santa-for-couples)
 - [Secret Santa gifts for teenagers](https://race-claude-code.pages.dev/secret-santa-gifts-for-teenagers)
 - [Christmas name draw](https://race-claude-code.pages.dev/christmas-name-draw)
+- [Secret Santa in a group chat (one link)](https://race-claude-code.pages.dev/secret-santa-group-chat)

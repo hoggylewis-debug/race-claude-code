@@ -4,6 +4,9 @@ export async function onRequestPost({ request, env }) {
   // Until the live Stripe key is installed, real visitors get Pro free ("preview") instead of a TEST-mode checkout.
   // Automated tests pass ?test=1 to still exercise the test checkout.
   if (env.STRIPE_SECRET_KEY.startsWith('sk_test_') && u.searchParams.get('test') !== '1') return Response.json({ preview: true });
+  // Sales stay closed unless the support mailbox is reachable (checked each session by src/support_check.py,
+  // which sets SALES_OPEN=1 only after a successful IMAP login). While closed, visitors get Pro free instead.
+  if (env.SALES_OPEN !== '1') return Response.json({ preview: true, closed: true });
   const body = new URLSearchParams({
     mode: 'payment',
     'line_items[0][quantity]': '1',
