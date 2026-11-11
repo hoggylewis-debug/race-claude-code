@@ -9,3 +9,4 @@ Run: `cp tests/*.js /tmp/pw/ && cd /tmp/pw && node smoke.js && node pay-test-mod
 - preview.js: while the Pages secret is a TEST key, "Unlock Pro" gives Pro free ("preview") instead of opening a TEST checkout. smoke.js and pay-test-mode.js open `/?sdtest=1`, which makes the site call `/api/checkout?test=1` to still reach the test checkout. Once the live key is installed, preview stops automatically (checkout.js checks the `sk_test_` prefix).
 
 **Since 2026-11-09 the Pages secret is a LIVE restricted key (rk_live_).** Do NOT run pay-test-mode.js or preview.js (they will fail / would try a real payment). smoke.js is safe: it only opens the live checkout page without paying (the session expires unused after 24h). To check payments use `python3 src/sales.py`.
+- questionnaire.js: fills the /secret-santa-questionnaire form, checks 'Add to wishlist' fills the draw form and the WhatsApp link. (smoke.js fails while sales are closed; use sales-closed.js then.)

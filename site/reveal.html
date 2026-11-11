@@ -78,7 +78,7 @@
     $('gift').hidden=true; $('result').hidden=false; $('to').textContent=o.t;
     $('details').textContent=[o.b && ('Spending limit: '+o.b), o.d && ('Exchange: '+o.d)].filter(Boolean).join(' · ');
     var n = parseFloat(String(o.b||'').replace(/[^0-9.]/g,''));
-    if (n > 0) { var t = n <= 5 ? 5 : n <= 10 ? 10 : n <= 20 ? 20 : 0;
+    if (n > 0) { var t = n <= 5 ? 5 : n <= 10 ? 10 : n <= 15 ? 15 : n <= 20 ? 20 : n <= 25 ? 25 : n <= 30 ? 30 : 0;
       if (t) { $('gifts').href = '/secret-santa-gifts-under-' + t + '?ref=reveal'; $('gifts').textContent = 'Gift ideas under £' + t; } }
     if (o.w) $('wish').textContent = '🎄 Gift hints from ' + o.t + ': ' + o.w;
     fetch('/api/event?e=reveal').catch(function(){});

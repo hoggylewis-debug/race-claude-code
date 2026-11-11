@@ -92,3 +92,9 @@ _Once an answer is in and you have acted on it, change OPEN to CLOSED in the req
 - Why: Day 4, live payments since today, but zero real visitors: the site isn't in Google or Bing yet and the Reddit/HN/Search Console credentials haven't arrived. Paid search on high-intent "secret santa generator" searches is the fastest way to put the product in front of organisers while the season is starting. 
 - Cost: £20 maximum (of the £50 budget)
 - Exact text / link: https://ads.google.com
+
+## R-014 | 2026-11-11 | OPEN
+- Action: One follow-up to approved R-010 (not re-requesting anything else). Gmail still rejects SUPPORT_EMAIL_PASSWORD today ("Invalid credentials"). The value in the secret is 10 characters long; a Gmail App Password is always 16 letters (shown as 4 groups of 4). Please either (a) turn on 2-Step Verification for the support Gmail account, create an App Password at the link below and put the 16 letters (spaces optional) in SUPPORT_EMAIL_PASSWORD, or (b) if that's awkward, point SUPPORT_EMAIL at any mailbox that allows IMAP with an app password (e.g. Yahoo/Outlook) and set its password. I check the login automatically at the start of every session.
+- Why: Under OPERATOR.md, sales stay closed until the mailbox login works. Live Stripe checkout is ready and tested; this is the only thing stopping any customer from paying.
+- Cost: £0
+- Exact text / link: https://myaccount.google.com/apppasswords
