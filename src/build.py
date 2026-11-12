@@ -8,6 +8,19 @@ SUB = 'Secret Santa names drawn in 30 seconds. No sign-up. No email addresses.<b
 
 EXTRA_Q = '<div class="card" id="questionnaire"><h2 style="margin-top:0">Free Secret Santa questionnaire</h2>\n<p>Fill this in (or send the page to your group) and copy your answers into the group chat, an email, or the wishlist box above. Nothing you type here is sent anywhere: it stays on your phone.</p>\n<label for="q_name">Your name</label><input id="q_name" placeholder="e.g. Priya" maxlength="80"><label for="q_colour">Favourite colour</label><input id="q_colour" placeholder="e.g. green" maxlength="80"><label for="q_snack">Favourite sweets or snacks</label><input id="q_snack" placeholder="e.g. salted caramel, crisps" maxlength="80"><label for="q_drink">Favourite drink (hot or otherwise)</label><input id="q_drink" placeholder="e.g. oat latte, ginger beer" maxlength="80"><label for="q_hobby">Hobbies or things you love doing</label><input id="q_hobby" placeholder="e.g. running, baking, gaming" maxlength="80"><label for="q_media">Favourite film, TV show or book</label><input id="q_media" placeholder="e.g. Paddington 2" maxlength="80"><label for="q_collect">Something you collect or always use</label><input id="q_collect" placeholder="e.g. candles, notebooks" maxlength="80"><label for="q_avoid">Anything you DON\'T want</label><input id="q_avoid" placeholder="e.g. no mugs, no smellies" maxlength="80"><label for="q_allergy">Allergies or foods to avoid</label><input id="q_allergy" placeholder="e.g. nuts" maxlength="80"><label for="q_size">Clothes size (if relevant)</label><input id="q_size" placeholder="e.g. M, size 6 shoes" maxlength="80"><label for="q_dream">Your dream gift under the limit</label><input id="q_dream" placeholder="e.g. a nice hot chocolate set" maxlength="80">\n<p style="margin-top:12px"><button id="qCopy">Copy my answers</button> <a class="btn" id="qWa" target="_blank" rel="noopener" href="#">Send on WhatsApp</a> <button class="secondary" id="qWish">Add to the wishlist box above</button></p>\n<p id="qMsg" class="small"></p>\n<h3>The questions (for printing or pasting into a form)</h3>\n<ol><li>Favourite colour</li><li>Favourite sweets or snacks</li><li>Favourite drink (hot or otherwise)</li><li>Hobbies or things you love doing</li><li>Favourite film, TV show or book</li><li>Something you collect or always use</li><li>Anything you DON\'T want</li><li>Allergies or foods to avoid</li><li>Clothes size (if relevant)</li><li>Your dream gift under the limit</li></ol>\n<h3>How to use a questionnaire at work</h3>\n<ul><li>Post this page\'s link in your team chat and ask everyone to send their answers to the organiser, or straight into the draw\'s wishlist box.</li>\n<li>Keep it short: 5 to 8 questions get answered, 25 don\'t.</li>\n<li>Always ask "anything you don\'t want?" and about allergies. It saves the most gifts.</li></ul>\n<p>Once you have everyone\'s answers, draw names above. With SantaDraw Pro (a one-off £2.49), paste each person\'s answers into the wishlist box and their Secret Santa sees them on their private link.</p></div>\n<script>(function(){var L=[[\'colour\',\'Favourite colour\'],[\'snack\',\'Favourite sweets or snacks\'],[\'drink\',\'Favourite drink (hot or otherwise)\'],[\'hobby\',\'Hobbies or things you love doing\'],[\'media\',\'Favourite film, TV show or book\'],[\'collect\',\'Something you collect or always use\'],[\'avoid\',\'Anything you DON\\\'T want\'],[\'allergy\',\'Allergies or foods to avoid\'],[\'size\',\'Clothes size (if relevant)\'],[\'dream\',\'Your dream gift under the limit\']];function txt(){var n=document.getElementById(\'q_name\').value.trim();var out=[];L.forEach(function(x){var v=document.getElementById(\'q_\'+x[0]).value.trim();if(v)out.push(x[1]+\': \'+v)});return {n:n,lines:out}}\nfunction full(){var t=txt();return \'\\uD83C\\uDF85 Secret Santa questionnaire\'+(t.n?\' - \'+t.n:\'\')+\'\\n\'+t.lines.join(\'\\n\')}\nfunction msg(m){document.getElementById(\'qMsg\').textContent=m}\ndocument.getElementById(\'qCopy\').onclick=function(){var s=full();if(navigator.clipboard)navigator.clipboard.writeText(s).then(function(){msg(\'Copied. Paste it into your group chat or email.\')},function(){msg(s)});else msg(s)};\ndocument.getElementById(\'qWa\').onclick=function(e){this.href=\'https://wa.me/?text=\'+encodeURIComponent(full()+\'\\n\\nMade with https://race-claude-code.pages.dev/secret-santa-questionnaire\')};\ndocument.getElementById(\'qWish\').onclick=function(){var t=txt();if(!t.n){msg(\'Add your name first.\');return}var w=document.getElementById(\'wish\');var hint=t.lines.map(function(l){return l.replace(/^[^:]+: /,\'\')}).join(\', \').slice(0,200);w.value=(w.value?w.value.replace(/\\s+$/,\'\')+\'\\n\':\'\')+t.n+\': \'+hint;var nm=document.getElementById(\'names\');if(nm.value.split(\'\\n\').map(function(x){return x.trim()}).indexOf(t.n)<0)nm.value=(nm.value?nm.value.replace(/\\s+$/,\'\')+\'\\n\':\'\')+t.n;msg(\'Added to the draw. Wishlists are a Pro feature; scroll up to see it.\');document.getElementById(\'formCard\').scrollIntoView({behavior:\'smooth\'})};})();</script>'
 
+TAGS = '''<div class="card" id="tags"><h2 style="margin-top:0">Make your printable gift tags</h2>
+<p>Type who each present is for (one name per line). We make a sheet of tags signed "From: your Secret Santa 🎅". Print it, cut along the lines, and tie one to each gift. Nothing is uploaded.</p>
+<textarea id="tagNames" rows="5" style="width:100%" placeholder="Alice&#10;Bob&#10;Charlie"></textarea>
+<p><label>Message: <input id="tagMsg" value="Merry Christmas!" style="width:60%"></label></p>
+<p><button type="button" id="tagMake">Make tags</button> <button type="button" id="tagPrint">Print tags</button></p>
+<div id="tagSheet" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:8px"></div>
+<style>.gtag{border:2px dashed #b22;border-radius:10px;padding:10px;text-align:center;background:#fff;color:#222;page-break-inside:avoid}.gtag b{font-size:1.2em;display:block}@media print{body *{visibility:hidden}#tagSheet,#tagSheet *{visibility:visible}#tagSheet{position:absolute;left:0;top:0;width:100%}}</style>
+<script>(function(){function esc(s){return s.replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function make(){var n=document.getElementById('tagNames').value.split(/\\n/).map(function(x){return x.trim()}).filter(Boolean);if(!n.length)n=['','','','','',''];var m=esc(document.getElementById('tagMsg').value);
+document.getElementById('tagSheet').innerHTML=n.map(function(x){return '<div class="gtag">🎁<br>To:<b>'+(esc(x)||'&nbsp;')+'</b>'+m+'<br><small>From: your Secret Santa 🎅</small></div>'}).join('')}
+document.getElementById('tagMake').onclick=make;document.getElementById('tagPrint').onclick=function(){make();window.print()};make();})();</script>
+<p>Tip: after the draw, everyone can print a tag for the person they're buying for, so the handwriting never gives them away.</p></div>'''
+
 PAGES = [
  dict(path='/', file='index.html', nav='Secret Santa generator',
   title='Secret Santa Generator: free draw, private WhatsApp links, no sign-up | SantaDraw',
@@ -511,6 +524,74 @@ PAGES = [
   sub='Help your Secret Santa with a short wishlist.<br>Copy the template below, or add wishlists straight into the draw.',
   extra='<div class="card"><h2 style="margin-top:0">Copy this template</h2>\n<pre style="white-space:pre-wrap;background:#f6f6f6;padding:12px;border-radius:8px">🎅 My Secret Santa wishlist\nName:\n3 things I\'d love:\n1.\n2.\n3.\nI like: (colours, snacks, hobbies)\nPlease no: (things I don\'t want)\nAllergies:\nSizes (if needed):</pre>\n<h2>Example</h2>\n<pre style="white-space:pre-wrap;background:#f6f6f6;padding:12px;border-radius:8px">Name: Sam\n3 things I\'d love: a crime novel, salted caramel anything, warm gloves\nI like: green, walking, board games\nPlease no: mugs, candles\nAllergies: none\nSizes: gloves M</pre>\n<h2>Tips</h2>\n<ul><li>Give 3 ideas at different prices so your Santa can choose within the limit.</li>\n<li>"Please no" is the most useful line: it saves a lot of unwanted mugs.</li>\n<li>Want more detail? Use the full <a href="/secret-santa-questionnaire">Secret Santa questionnaire</a>.</li></ul>\n<p><strong>Skip the copying:</strong> with SantaDraw Pro (a one-off £2.49), type each person\'s wishlist into the draw and their Secret Santa sees it on their private link. See <a href="/secret-santa-with-wishlist">Secret Santa with wishlists</a>.</p></div>'),
 
+
+ dict(path='/secret-santa-gifts-for-grandparents', file='secret-santa-gifts-for-grandparents.html', nav='Secret Santa gifts for grandparents',
+  title='Secret Santa Gifts for Grandparents: ideas under £10 and £20 | SantaDraw',
+  desc='Drew Grandma or Grandad in the family Secret Santa? Thoughtful gift ideas for grandparents under £10 and £20, plus a free family name draw with private WhatsApp links.',
+  h1='👵 Secret Santa gifts for grandparents',
+  sub='Drew Nan, Grandma or Grandad in the family Secret Santa?<br>Ideas they will actually use, plus a free family name draw.',
+  extra='''<div class="card"><h2 style="margin-top:0">Under £10</h2>
+<ul><li>A photo printed and framed from a recent family day</li><li>Posh tea, hot chocolate or their favourite biscuits</li><li>A large-print puzzle book or crossword collection</li><li>Bird food and a simple feeder for the garden</li><li>Cosy bed socks or a hot water bottle cover</li></ul>
+<h2>Under £20</h2>
+<ul><li>A small photo book of the year (many sites have offers in November)</li><li>A bulb kit or herb planter for the windowsill</li><li>A jigsaw made from a family photo</li><li>A "letters from the grandkids" jar: notes or drawings from every child</li></ul>
+<h2>Making it easy for older relatives</h2>
+<p>Many grandparents don't want another app or an account. With SantaDraw everyone just taps a link in WhatsApp or a text to see who they're buying for. No downloads, no passwords, no email addresses. If they're not on WhatsApp, read their result out on a call: the link still only shows one name.</p></div>'''),
+ dict(path='/secret-santa-gifts-for-kids', file='secret-santa-gifts-for-kids.html', nav='Secret Santa gifts for kids',
+  title='Secret Santa Gifts for Kids by Age: ideas under £10 | SantaDraw',
+  desc='Secret Santa gift ideas for children by age (3 to 5, 6 to 8, 9 to 12) under £10 and £15, plus a free family name draw that keeps siblings apart.',
+  h1='🧸 Secret Santa gifts for kids',
+  sub='Ideas by age for the family or class Secret Santa,<br>plus a free name draw with private links for each child.',
+  extra='''<div class="card"><h2 style="margin-top:0">Ages 3 to 5</h2>
+<ul><li>Chunky crayons and a big colouring pad</li><li>Bath toys or bath crayons</li><li>A picture book with flaps or sounds</li><li>Play dough set with cutters</li></ul>
+<h2>Ages 6 to 8</h2>
+<ul><li>Make-your-own slime or crystal-growing kit</li><li>A joke book</li><li>Pocket card games (Uno, Dobble)</li><li>Torch or glow-in-the-dark stars</li></ul>
+<h2>Ages 9 to 12</h2>
+<ul><li>A sketchbook with fineliners</li><li>Mini Lego or building set</li><li>Puzzle cube or brain teasers</li><li>A book from a series they're reading (ask the parents which one)</li></ul>
+<h2>Kids in the family draw</h2>
+<p>Many families run a separate kids' draw so children buy for each other, with a parent helping. Use <a href="/secret-santa-with-exclusions">exclusions</a> so siblings don't draw each other, and the wishlist box so each child can add an idea. See also <a href="/secret-santa-for-kids">Secret Santa for kids</a>.</p></div>'''),
+ dict(path='/eco-friendly-secret-santa-gifts', file='eco-friendly-secret-santa-gifts.html', nav='Eco-friendly Secret Santa gifts',
+  title='Eco-Friendly Secret Santa Gifts: sustainable ideas under £10 | SantaDraw',
+  desc='Sustainable Secret Santa gift ideas under £10 and £20: reusable, plastic-free, second-hand and experience gifts. Plus a paper-free name draw with private links.',
+  h1='🌱 Eco-friendly Secret Santa gifts',
+  sub='Sustainable, low-waste gift ideas for any budget,<br>and a paper-free name draw: no slips of paper, no emails.',
+  extra='''<div class="card"><h2 style="margin-top:0">Under £10</h2>
+<ul><li>Beeswax food wraps</li><li>A solid shampoo or soap bar</li><li>Seed paper or a pack of wildflower seeds</li><li>A bamboo or metal straw set</li><li>A second-hand book you loved, with a note inside</li></ul>
+<h2>Under £20</h2>
+<ul><li>A good reusable coffee cup or water bottle</li><li>A refill kit from a local refill shop</li><li>A potted herb or a small house plant</li><li>Locally made food: jam, honey, chutney</li></ul>
+<h2>Low-waste swap ideas</h2>
+<ul><li>Wrap in fabric (furoshiki), newspaper or brown paper instead of glossy paper</li><li>Agree a "second-hand only" rule for the whole group: it's a fun challenge</li><li>Use wishlists so nobody gets something they'll never use</li></ul></div>'''),
+ dict(path='/printable-secret-santa-gift-tags', file='printable-secret-santa-gift-tags.html', nav='Printable Secret Santa gift tags',
+  title='Printable Secret Santa Gift Tags: free, type names and print | SantaDraw',
+  desc='Free printable Secret Santa gift tags. Type the names, print a sheet of tags signed "From your Secret Santa", cut and attach. Plus a free name draw.',
+  h1='🏷️ Printable Secret Santa gift tags',
+  sub='Type the names, print, cut, done. Tags signed "From: your Secret Santa".<br>Need to draw names first? Use the free draw above.',
+  extra=TAGS),
+ dict(path='/secret-santa-with-3-people', file='secret-santa-with-3-people.html', nav='Secret Santa with 3 people',
+  title='Secret Santa with 3 People (or 4): does it work? Free draw | SantaDraw',
+  desc='Can you do Secret Santa with just 3 or 4 people? Yes. How to keep it secret in a small group, fun rules for small groups, and a free name draw with private links.',
+  h1='🎅 Secret Santa with 3 people',
+  sub='Small group? It still works.<br>Draw names free and send each person a private link.',
+  extra='''<div class="card"><h2 style="margin-top:0">Does Secret Santa work with 3 people?</h2>
+<p>Yes. With 3 people there are only two possible draws (A→B→C→A or A→C→B→A), so once you know who you're buying for, you can work out who's buying for you. That's fine: the fun is in the surprise gift, not the mystery. If you want more mystery:</p>
+<ul><li><strong>Add a "mystery" rule:</strong> everyone also brings a small anonymous gift for a lucky dip.</li>
+<li><strong>Go to 4 or more:</strong> with 4 people there are 9 possible draws, so it's genuinely secret.</li>
+<li><strong>Do two rounds:</strong> each person draws twice (run the draw twice with a lower budget each).</li></ul>
+<h2>Small group ideas</h2>
+<ul><li>Theme it: "something red", "a book and a snack", "under £5 and homemade"</li><li>Do a reveal: everyone guesses their Santa before opening</li><li>Add <a href="/secret-santa-gift-ideas">gift ideas</a> or a <a href="/secret-santa-wishlist-template">wishlist</a> so small budgets go further</li></ul>
+<p>Groups of up to 6 are free on SantaDraw.</p></div>'''),
+ dict(path='/secret-santa-reveal-ideas', file='secret-santa-reveal-ideas.html', nav='Secret Santa reveal ideas',
+  title='Secret Santa Reveal Ideas: fun ways to reveal who your Santa was | SantaDraw',
+  desc='Fun Secret Santa reveal ideas for family, friends and the office: guessing games, clue cards, Zoom reveals and more. Plus a free name draw with private links.',
+  h1='🎉 Secret Santa reveal ideas',
+  sub='The gifts are wrapped. Now the fun bit: who was whose Santa?<br>Ideas for the big reveal, plus a free name draw.',
+  extra='''<div class="card"><h2 style="margin-top:0">Reveal games</h2>
+<ul><li><strong>Guess first:</strong> before opening, everyone writes down who they think their Santa is. A point for each right guess.</li>
+<li><strong>Clue cards:</strong> each Santa writes three clues about themselves on the tag (see <a href="/secret-santa-clues">Secret Santa clues</a>).</li>
+<li><strong>Stand up when...:</strong> the organiser reads out each gift; the Santa stands up only when their recipient guesses right.</li>
+<li><strong>Chain reveal:</strong> the first person opens, guesses, and then their real Santa opens next, until the chain closes.</li>
+<li><strong>Video call reveal:</strong> for remote groups, open together on camera and guess in the chat (see <a href="/virtual-secret-santa">virtual Secret Santa</a>).</li></ul>
+<h2>Keeping it secret until then</h2>
+<p>With SantaDraw each person's link shows only their own match, so not even the organiser knows the pairs unless they peek. Ask everyone to sign tags "from your Secret Santa" (here are <a href="/printable-secret-santa-gift-tags">printable tags</a>) so handwriting doesn't give it away.</p></div>'''),
 ]
 
 nav_html = ' · '.join('<a href="%s">%s</a>' % (p['path'], p['nav']) for p in PAGES)

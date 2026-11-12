@@ -81,7 +81,7 @@ function upsell(text){
   b.textContent = SALES_CLOSED ? 'Unlock Pro free for now' : 'Unlock Pro for £2.49 (one-off)'; b.onclick = buy;
   m.appendChild(document.createElement('br')); m.appendChild(b);
   var s = document.createElement('div'); s.className = 'small'; s.style.fontWeight = '400';
-  s.textContent = SALES_CLOSED ? 'Card payments are paused at the moment, so Pro is free in this browser. Your names are kept.' : 'Your names are kept while you pay. Secure checkout by Stripe (it may show our project name, race-claude-code). Full refund if it doesn\'t work for you.'; m.appendChild(s);
+  s.textContent = SALES_CLOSED ? 'Card payments are paused at the moment, so Pro is free in this browser. Your names are kept.' : 'Your names are kept while you pay. Secure checkout by Stripe. Full refund if it doesn\'t work for you.'; m.appendChild(s);
 }
 
 function doDraw(){

@@ -1,41 +1,45 @@
 #!/usr/bin/env python3
-"""Session-start check required by OPERATOR.md.
+"""Session-start check required by OPERATOR.md (support inbox rule, 12 Nov 2026 version).
 
-1. Tests IMAP login to the SUPPORT_EMAIL mailbox (SUPPORT_EMAIL_PASSWORD).
-2. Checks the published support address on terms/privacy/contact matches SUPPORT_EMAIL.
-3. Sets the Pages secret SALES_OPEN to 1 (login OK) or 0 (login failed).
-   Redeploy afterwards so the secret takes effect.
-Never prints the address or password.
+The support address is an alias read only by Lewis. We must NOT log in to it (no IMAP/SMTP).
+Sales may open only when the SUPPORT_EMAIL env var equals the published support address,
+the live Stripe key is present and the Stripe public profile is ready.
+
+1. Compares SUPPORT_EMAIL (surrounding whitespace ignored) with the published address.
+2. Checks terms/privacy/contact show that address.
+3. Checks STRIPE_SECRET_KEY is live and the Stripe public business name is set.
+4. Sets the Pages secret SALES_OPEN to 1 (all OK) or 0. Redeploy afterwards.
+Never prints secrets.
 """
-import imaplib, os, subprocess, sys
+import json, os, subprocess, sys, urllib.request
 
-HOSTS = {'gmail.com': 'imap.gmail.com', 'googlemail.com': 'imap.gmail.com', 'yahoo.com': 'imap.mail.yahoo.com',
-         'yahoo.co.uk': 'imap.mail.yahoo.com', 'outlook.com': 'outlook.office365.com', 'hotmail.com': 'outlook.office365.com',
-         'hotmail.co.uk': 'outlook.office365.com', 'live.com': 'outlook.office365.com', 'icloud.com': 'imap.mail.me.com',
-         'aol.com': 'imap.aol.com', 'gmx.com': 'imap.gmx.com', 'zoho.com': 'imap.zoho.eu', 'proton.me': None}
-
-email, pw = os.environ.get('SUPPORT_EMAIL', ''), os.environ.get('SUPPORT_EMAIL_PASSWORD', '')
-ok = False
-if not email or not pw:
-    print('SUPPORT_EMAIL or SUPPORT_EMAIL_PASSWORD missing')
-else:
-    domain = email.split('@')[-1].lower()
-    host = HOSTS.get(domain, 'imap.' + domain)
-    try:
-        m = imaplib.IMAP4_SSL(host, 993, timeout=20)
-        m.login(email, pw)
-        m.select('INBOX', readonly=True)
-        typ, data = m.search(None, 'UNSEEN')
-        print('IMAP login OK on', host, '- unseen messages:', len(data[0].split()) if data and data[0] else 0)
-        m.logout(); ok = True
-    except Exception as ex:
-        print('IMAP login FAILED on', host, '-', type(ex).__name__, str(ex)[:120])
+PUBLISHED = 'santadraw.support@gmx.co.uk'
+env_email = os.environ.get('SUPPORT_EMAIL', '').strip().lower()
+email_ok = env_email == PUBLISHED
+print('SUPPORT_EMAIL matches published address:', email_ok)
 
 root = os.path.join(os.path.dirname(__file__), '..', 'site')
+pages_ok = True
 for f in ('terms.html', 'privacy.html', 'contact.html'):
-    t = open(os.path.join(root, f)).read()
-    print(f, 'shows current SUPPORT_EMAIL:', bool(email) and email in t)
+    shown = PUBLISHED in open(os.path.join(root, f)).read()
+    pages_ok &= shown
+    print(f, 'shows support address:', shown)
 
+key = os.environ.get('STRIPE_SECRET_KEY', '')
+stripe_ok = key.startswith(('sk_live_', 'rk_live_'))
+print('Live Stripe key present:', stripe_ok)
+if stripe_ok:
+    try:
+        req = urllib.request.Request('https://api.stripe.com/v1/account', headers={'Authorization': 'Bearer ' + key})
+        acct = json.load(urllib.request.urlopen(req, timeout=20))
+        name = (acct.get('business_profile') or {}).get('name')
+        print('Stripe public name:', name, '| charges enabled:', acct.get('charges_enabled'))
+        stripe_ok = bool(name) and bool(acct.get('charges_enabled'))
+    except Exception as ex:
+        print('Could not read Stripe account:', type(ex).__name__)
+        stripe_ok = False
+
+ok = email_ok and pages_ok and stripe_ok
 if '--no-secret' not in sys.argv:
     val = '1' if ok else '0'
     r = subprocess.run(['npx', 'wrangler', 'pages', 'secret', 'put', 'SALES_OPEN', '--project-name', 'race-claude-code'],

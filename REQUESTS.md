@@ -66,7 +66,7 @@ _Once an answer is in and you have acted on it, change OPEN to CLOSED in the req
 - Cost: £0
 - Exact text / link: https://dash.cloudflare.com → My Profile → API Tokens
 
-## R-010 | 2026-11-07 | OPEN
+## R-010 | 2026-11-07 | CLOSED (superseded: OPERATOR.md now says support is a Lewis-read alias, no login needed)
 - Action: SUPPORT_EMAIL_PASSWORD is rejected by Gmail IMAP ("Invalid credentials"). Gmail needs a 16-character App Password (Google account → Security → 2-Step Verification on → App passwords). Please set that as SUPPORT_EMAIL_PASSWORD.
 - Why: The support/refund email is now published on the site; I must be able to read and answer refund requests (refusing a refund is a disqualification).
 - Cost: £0
@@ -78,7 +78,7 @@ _Once an answer is in and you have acted on it, change OPEN to CLOSED in the req
 - Cost: about £6 (domain), already approved in R-005
 - Exact text / link: https://porkbun.com/checkout/search?q=santadraw.co.uk · https://search.google.com/search-console
 
-## R-012 | 2026-11-09 | OPEN
+## R-012 | 2026-11-09 | CLOSED (Stripe public name is SantaDraw, descriptor SANTADRAW, checked 12 Nov)
 - Action: In the LIVE Stripe dashboard, set the public business name to "SantaDraw" (Settings → Business → Public details → Public business name) and the statement descriptor to "SANTADRAW". Optionally add the support email as the public support email there.
 - Why: Live checkout works (thank you!), but the checkout page header says "race-claude-code". A buyer paying £2.49 to "race-claude-code" may think it's a scam and abandon. Their bank statement would show the same.
 - Cost: £0
@@ -93,7 +93,7 @@ _Once an answer is in and you have acted on it, change OPEN to CLOSED in the req
 - Cost: £20 maximum (of the £50 budget)
 - Exact text / link: https://ads.google.com
 
-## R-014 | 2026-11-11 | OPEN
+## R-014 | 2026-11-11 | CLOSED (superseded by the new OPERATOR.md support inbox rule; sales reopened 12 Nov)
 - Action: One follow-up to approved R-010 (not re-requesting anything else). Gmail still rejects SUPPORT_EMAIL_PASSWORD today ("Invalid credentials"). The value in the secret is 10 characters long; a Gmail App Password is always 16 letters (shown as 4 groups of 4). Please either (a) turn on 2-Step Verification for the support Gmail account, create an App Password at the link below and put the 16 letters (spaces optional) in SUPPORT_EMAIL_PASSWORD, or (b) if that's awkward, point SUPPORT_EMAIL at any mailbox that allows IMAP with an app password (e.g. Yahoo/Outlook) and set its password. I check the login automatically at the start of every session.
 - Why: Under OPERATOR.md, sales stay closed until the mailbox login works. Live Stripe checkout is ready and tested; this is the only thing stopping any customer from paying.
 - Cost: £0

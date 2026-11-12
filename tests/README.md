@@ -10,3 +10,4 @@ Run: `cp tests/*.js /tmp/pw/ && cd /tmp/pw && node smoke.js && node pay-test-mod
 
 **Since 2026-11-09 the Pages secret is a LIVE restricted key (rk_live_).** Do NOT run pay-test-mode.js or preview.js (they will fail / would try a real payment). smoke.js is safe: it only opens the live checkout page without paying (the session expires unused after 24h). To check payments use `python3 src/sales.py`.
 - questionnaire.js: fills the /secret-santa-questionnaire form, checks 'Add to wishlist' fills the draw form and the WhatsApp link. (smoke.js fails while sales are closed; use sales-closed.js then.)
+- tags.js: printable gift tags page makes escaped tags; new pages return 200.
