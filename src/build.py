@@ -57,7 +57,8 @@ PAGES = [
 <li><strong>Make it opt-in.</strong> Only add people who've said yes.</li>
 <li><strong>Use wishlists</strong> so people get something they actually want. Each person sees their recipient's hints.</li>
 <li><strong>Remote team?</strong> Ask people to post gifts to each other, or use a gift card with a personal note.</li></ul>
-<p>No colleague needs an account, and SantaDraw never stores names or email addresses. Teams bigger than 6 need SantaDraw Pro (£2.49 one-off, often cheaper than one mince pie per person).</p></div>'''),
+<p>No colleague needs an account, and SantaDraw never stores names or email addresses. Teams bigger than 6 need SantaDraw Pro (£2.49 one-off, often cheaper than one mince pie per person).</p>
+<p>Working shifts? See <a href="/secret-santa-for-nurses">Secret Santa for nurses and NHS teams</a>. Setting the limit? <a href="/secret-santa-budget-calculator">How much to spend on Secret Santa</a>.</p></div>'''),
  dict(path='/virtual-secret-santa', file='virtual-secret-santa.html', nav='Virtual Secret Santa',
   title='Virtual Secret Santa: draw names online for remote friends and teams | SantaDraw',
   desc='Run a virtual Secret Santa for friends or remote colleagues. Draw names online free, send private links, share wishlists and delivery hints.',
@@ -93,7 +94,8 @@ PAGES = [
 <ul><li><strong>Couples:</strong> add them as exclusions (Pro) so partners don't draw each other.</li>
 <li><strong>Kids:</strong> many families keep buying for all the children and only do Secret Santa between adults. Just leave the kids off the list.</li>
 <li><strong>Relatives abroad:</strong> they get their link by WhatsApp like everyone else.</li>
-<li><strong>Gran who doesn't do phones?</strong> Print the cards (Pro) and hand them out.</li></ul></div>'''),
+<li><strong>Gran who doesn't do phones?</strong> Print the cards (Pro) and hand them out.</li></ul>
+<p>Lots of aunts, uncles and cousins? See <a href="/secret-santa-for-big-families">Secret Santa for big families</a> and <a href="/secret-santa-budget-calculator">how much to spend</a>.</p></div>'''),
  dict(path='/draw-names-from-a-hat', file='draw-names-from-a-hat.html', nav='Draw names from a hat online',
   title='Draw Names From a Hat Online: free random name picker for gift exchanges | SantaDraw',
   desc='The online version of drawing names out of a hat for a gift exchange. Nobody picks themselves, nobody has to be in the same room, and everyone gets a private result.',
@@ -248,7 +250,8 @@ PAGES = [
 <li><strong>Use exclusions</strong> for couples, people in the same household, or last year's pairs.</li>
 <li><strong>Copy all links</strong> after the draw and keep them somewhere private, so you can resend a lost link.</li>
 <li><strong>Need paper?</strong> Print a card for each person instead.</li></ul>
-<p>Groups up to 6 are free. Larger groups need SantaDraw Pro, a one-off £2.49 for the organiser (not per person), which also unlocks exclusions, wishlists and printable cards. Nobody else pays anything or signs up.</p></div>'''),
+<p>Groups up to 6 are free. Larger groups need SantaDraw Pro, a one-off £2.49 for the organiser (not per person), which also unlocks exclusions, wishlists and printable cards. Nobody else pays anything or signs up.</p>
+<p>Guides for big groups: <a href="/secret-santa-for-big-families">big families</a> · <a href="/secret-santa-for-clubs">clubs and teams</a> · <a href="/secret-santa-for-nurses">nurses and NHS teams</a> · <a href="/secret-santa-budget-calculator">how much to spend</a></p></div>'''),
  dict(path='/secret-santa-name-picker', file='secret-santa-name-picker.html', nav='Secret Santa name picker',
   title='Secret Santa Name Picker: random, fair, nobody gets themselves | SantaDraw',
   desc='A random Secret Santa name picker. Type the names, press draw, and everyone gets a private link with their match. Nobody draws themselves. Free, no sign-up.',
@@ -592,6 +595,90 @@ PAGES = [
 <li><strong>Video call reveal:</strong> for remote groups, open together on camera and guess in the chat (see <a href="/virtual-secret-santa">virtual Secret Santa</a>).</li></ul>
 <h2>Keeping it secret until then</h2>
 <p>With SantaDraw each person's link shows only their own match, so not even the organiser knows the pairs unless they peek. Ask everyone to sign tags "from your Secret Santa" (here are <a href="/printable-secret-santa-gift-tags">printable tags</a>) so handwriting doesn't give it away.</p></div>'''),
+ dict(path='/secret-santa-for-nurses', file='secret-santa-for-nurses.html', nav='Secret Santa for nurses and NHS teams',
+  title='Secret Santa for Nurses and NHS Teams: shift-friendly draw | SantaDraw',
+  desc='Run a Secret Santa on a ward or NHS team without everyone being on shift at once. Draw names in seconds, post one link in the team chat, gift ideas under £5 and £10.',
+  h1='🩺 Secret Santa for nurses and NHS teams',
+  sub='Nights, days, rotas and bank staff: nobody is ever on shift at the same time.<br>Draw names once and let everyone check their match on their phone.',
+  extra='''<div class="card"><h2 style="margin-top:0">Why a link beats a hat on a ward</h2>
+<ul><li><strong>No need for everyone in one room.</strong> Post one link in the team WhatsApp; night staff check it when they wake up.</li>
+<li><strong>No email addresses.</strong> No NHS mail lists, no personal emails, no app to install.</li>
+<li><strong>Works for big teams.</strong> Wards and departments are usually 10 to 40 people. Groups over 6 need SantaDraw Pro, a one-off £2.49 for the organiser, not per person.</li>
+<li><strong>Keep friends or couples apart</strong> with exclusions, and let people add a gift hint so nobody gets a fifth mug.</li></ul>
+<h2>Gift ideas that suit long shifts (under £5 and £10)</h2>
+<ul><li>Good hand cream (hands take a beating from washing and gel)</li><li>Fun pen torch or a badge reel</li><li>Lip balm and a nice snack for the break room</li><li>Compression socks in a silly pattern</li><li>A reusable coffee cup or insulated bottle</li><li>Posh tea bags or hot chocolate for the night shift</li></ul>
+<h2>Tips for organisers</h2>
+<ul><li>Set the gift date for a day when most people overlap, or leave gifts in a box in the staff room with name tags (<a href="/printable-secret-santa-gift-tags">printable tags</a>).</li>
+<li>Keep the limit low (£5 to £10) so nobody feels pressured. See <a href="/secret-santa-gifts-under-5">gifts under £5</a> and <a href="/secret-santa-gifts-under-10">under £10</a>.</li>
+<li>Agency and bank staff can join too: they only need the link.</li></ul></div>'''),
+ dict(path='/secret-santa-for-big-families', file='secret-santa-for-big-families.html', nav='Secret Santa for big families',
+  title='Secret Santa for Big Families: aunts, uncles and cousins in one draw | SantaDraw',
+  desc='Too many relatives to buy for? Run one family Secret Santa: draw names for the whole family, keep couples and households apart, and send private links on WhatsApp.',
+  h1='👨‍👩‍👧‍👦 Secret Santa for big families',
+  sub='Buying for every aunt, uncle and cousin gets expensive.<br>One family draw: everyone buys one good gift instead of ten small ones.',
+  extra='''<div class="card"><h2 style="margin-top:0">Why big families switch to Secret Santa</h2>
+<p>With 15 relatives at £10 each, that's £150 per person. With a family Secret Santa each person buys one gift, so the limit can go up and the gifts get better.</p>
+<h2>How to set it up</h2>
+<ol><li>Type everyone in the family above (kids too, or run a separate kids' draw).</li>
+<li>Add <strong>exclusions</strong> so couples and people in the same house don't draw each other. They'd know anyway.</li>
+<li>Let everyone add a wishlist line so Gran knows what a teenager actually wants.</li>
+<li>Post the single group link in the family WhatsApp, or send each person their own private link.</li></ol>
+<p>Families bigger than 6 need SantaDraw Pro: a one-off £2.49 for the organiser, which unlocks the big group, exclusions, wishlists and printable cards. Up to 6 people is free.</p>
+<h2>Family rules that avoid arguments</h2>
+<ul><li>Agree one limit for everyone, adults and kids (see <a href="/secret-santa-budget-calculator">how much to spend</a>).</li>
+<li>Draw early (mid-November) so people who live far away can post gifts.</li>
+<li>Decide whether partners who aren't married in yet are in (usually: yes, if they're coming for Christmas).</li>
+<li>More ideas: <a href="/family-secret-santa">family Secret Santa</a>, <a href="/secret-santa-gifts-for-grandparents">gifts for grandparents</a>, <a href="/secret-santa-gifts-for-teenagers">gifts for teenagers</a>.</li></ul></div>'''),
+ dict(path='/secret-santa-for-clubs', file='secret-santa-for-clubs.html', nav='Secret Santa for clubs and teams',
+  title='Secret Santa for Clubs, Teams and Choirs: one-link name draw | SantaDraw',
+  desc='Secret Santa for a football team, running club, choir, book club or scout group. Draw names for the whole club and post one link in the group chat. No emails needed.',
+  h1='⚽ Secret Santa for clubs, teams and choirs',
+  sub='Football team, running club, choir, book club, scouts or Pilates class.<br>Draw names once, post one link in the group chat.',
+  extra='''<div class="card"><h2 style="margin-top:0">How it works for a club</h2>
+<ol><li>Copy the member list from your group chat into the box above, one name per line.</li>
+<li>Set the limit (£5 is common for clubs) and the date, e.g. the last session before Christmas.</li>
+<li>Press <strong>Draw names</strong>, then <strong>Send to WhatsApp group</strong>. Each member taps the link, picks their own name and sees who they're buying for.</li>
+<li>Bring the gifts to the last session or the Christmas social.</li></ol>
+<p>Clubs are usually more than 6 people, so you'll need SantaDraw Pro: a one-off £2.49 for the organiser (not per member). It also lets members add a gift hint.</p>
+<h2>Club-themed gift ideas under £5</h2>
+<ul><li><strong>Running club:</strong> energy gels, reflective armband, fun socks</li>
+<li><strong>Football or netball:</strong> a water bottle, sweatbands, a chocolate "medal"</li>
+<li><strong>Choir:</strong> throat sweets and honey, a pencil for marking scores</li>
+<li><strong>Book club:</strong> a bookmark and a secondhand favourite</li>
+<li><strong>Gym or Pilates:</strong> a hair tie set, a mini foam roller, a protein bar</li></ul>
+<p>More: <a href="/secret-santa-gifts-under-5">gifts under £5</a> · <a href="/secret-santa-for-large-groups">Secret Santa for large groups</a></p></div>'''),
+ dict(path='/secret-santa-generator-uk', file='secret-santa-generator-uk.html', nav='Secret Santa generator UK',
+  title='Secret Santa Generator UK: free draw in pounds, sent by WhatsApp | SantaDraw',
+  desc='A UK Secret Santa generator: spending limits in pounds, UK gift ideas by budget, and private links you send on WhatsApp or by text. Free for up to 6 people, no sign-up.',
+  h1='🇬🇧 Secret Santa generator (UK)',
+  sub='Made for UK groups: limits in pounds, WhatsApp-first, no emails.<br>Draw names now and send everyone their private link.',
+  extra='''<div class="card"><h2 style="margin-top:0">Built for how UK groups actually organise</h2>
+<ul><li><strong>WhatsApp, not email.</strong> Most family and work groups in the UK live in a WhatsApp chat, so SantaDraw sends links there (or by text).</li>
+<li><strong>Pounds, not dollars.</strong> Set a limit of £5, £10, £20 and the reveal page links to UK gift ideas at that budget.</li>
+<li><strong>No sign-up.</strong> The draw happens on your phone. Nobody's name or number is stored on a server.</li>
+<li><strong>Kris Kindle too.</strong> In Ireland and Northern Ireland? It's the same thing: see the <a href="/kris-kindle-generator">Kris Kindle generator</a>.</li></ul>
+<h2>Typical UK limits</h2>
+<ul><li>Office: £5 to £10 (<a href="/secret-santa-gifts-for-colleagues">gifts for colleagues</a>)</li><li>Friends: £10 to £20 (<a href="/secret-santa-for-friends">friends Secret Santa</a>)</li><li>Family: £20 to £30 (<a href="/family-secret-santa">family Secret Santa</a>)</li></ul>
+<p>Free for up to 6 people. Bigger groups, couples exclusions and wishlists: SantaDraw Pro, a one-off £2.49.</p></div>'''),
+ dict(path='/secret-santa-budget-calculator', file='secret-santa-budget-calculator.html', nav='How much to spend on Secret Santa',
+  title='How Much to Spend on Secret Santa? Budget guide and calculator | SantaDraw',
+  desc='How much should you spend on Secret Santa? Typical UK limits for work, friends and family, plus a quick calculator showing what your group saves compared with buying for everyone.',
+  h1='💷 How much to spend on Secret Santa',
+  sub='Typical limits for work, friends and family,<br>and a quick calculator to see what your group saves.',
+  extra='''<div class="card" id="calc"><h2 style="margin-top:0">Secret Santa savings calculator</h2>
+<label for="c_n">People in the group</label><input id="c_n" type="number" min="3" max="100" value="10">
+<label for="c_each">What you'd normally spend on EACH person (£)</label><input id="c_each" type="number" min="1" max="500" value="10">
+<label for="c_lim">Secret Santa limit for one gift (£)</label><input id="c_lim" type="number" min="1" max="500" value="20">
+<p id="c_out" style="font-size:1.1em;margin-top:12px"></p></div>
+<script>(function(){function g(i){return Math.max(0,parseFloat(document.getElementById(i).value)||0)}function r(){var n=Math.round(g('c_n')),e=g('c_each'),l=g('c_lim');var before=Math.max(0,n-1)*e,save=before-l;document.getElementById('c_out').innerHTML='Buying for everyone: <strong>£'+before.toFixed(0)+'</strong> each. With Secret Santa: <strong>£'+l.toFixed(0)+'</strong> each.<br>'+(save>0?'Each person saves <strong>£'+save.toFixed(0)+'</strong>, and the group saves <strong>£'+(save*n).toFixed(0)+'</strong> in total.':'At this limit Secret Santa does not save money, but everyone gets one better gift instead of lots of small ones.')}['c_n','c_each','c_lim'].forEach(function(i){document.getElementById(i).addEventListener('input',r)});r()})();</script>
+<div class="card"><h2 style="margin-top:0">Typical Secret Santa limits in the UK</h2>
+<ul><li><strong>Office or team:</strong> £5 to £10. Keep it low so nobody feels left out (<a href="/secret-santa-gifts-under-5">under £5</a>, <a href="/secret-santa-gifts-under-10">under £10</a>).</li>
+<li><strong>Friends:</strong> £10 to £20 (<a href="/secret-santa-gifts-under-15">under £15</a>, <a href="/secret-santa-gifts-under-20">under £20</a>).</li>
+<li><strong>Family:</strong> £20 to £30, because each person buys only one gift (<a href="/secret-santa-gifts-under-25">under £25</a>, <a href="/secret-santa-gifts-under-30">under £30</a>).</li></ul>
+<h2>Tips for setting the limit</h2>
+<ul><li>Agree it before the draw and put it in the draw: SantaDraw shows the limit on everyone's private link.</li>
+<li>Say whether it's "up to" or "about". "About £10" avoids one £2 gift next to a £10 one.</li>
+<li>If anyone is short of money this year, pick the lower number. Nobody minds.</li></ul></div>'''),
 ]
 
 nav_html = ' · '.join('<a href="%s">%s</a>' % (p['path'], p['nav']) for p in PAGES)

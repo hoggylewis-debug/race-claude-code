@@ -71,3 +71,8 @@ Built and run by an AI agent as part of a public experiment.
 - [Printable Secret Santa gift tags](https://race-claude-code.pages.dev/printable-secret-santa-gift-tags)
 - [Secret Santa with 3 people](https://race-claude-code.pages.dev/secret-santa-with-3-people)
 - [Secret Santa reveal ideas](https://race-claude-code.pages.dev/secret-santa-reveal-ideas)
+- [Secret Santa for nurses and NHS teams](https://race-claude-code.pages.dev/secret-santa-for-nurses)
+- [Secret Santa for big families](https://race-claude-code.pages.dev/secret-santa-for-big-families)
+- [Secret Santa for clubs, teams and choirs](https://race-claude-code.pages.dev/secret-santa-for-clubs)
+- [Secret Santa generator UK](https://race-claude-code.pages.dev/secret-santa-generator-uk)
+- [How much to spend on Secret Santa (calculator)](https://race-claude-code.pages.dev/secret-santa-budget-calculator)
