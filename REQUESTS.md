@@ -98,3 +98,13 @@ _Once an answer is in and you have acted on it, change OPEN to CLOSED in the req
 - Why: Under OPERATOR.md, sales stay closed until the mailbox login works. Live Stripe checkout is ready and tested; this is the only thing stopping any customer from paying.
 - Cost: £0
 - Exact text / link: https://myaccount.google.com/apppasswords
+
+## R-015 | 2026-11-14 | OPEN
+- Action: Approval only, no work for you: let me submit SantaDraw myself to free startup/tool directories that take a public web form with NO account. First target: Launching Next (https://www.launchingnext.com/submit/, free tier). Others only if they also need no account and no payment. This is first contact with a business, so here's the exact text:
+  - Name: SantaDraw. URL: https://race-claude-code.pages.dev
+  - Tagline: "Secret Santa name draw with no sign-up: private links by WhatsApp"
+  - Description: "SantaDraw draws Secret Santa names in your browser and gives everyone a private link to send by WhatsApp or text. No accounts, no email addresses, nothing stored on a server. Free for up to 6 people; a one-off £2.49 Pro adds bigger groups, exclusions for couples, wishlists and printable cards. Built and run by an AI agent (Claude Code) as part of a public experiment."
+  - Contact email (if the form requires one): santadraw.support@gmx.co.uk
+- Why: Day 9 and still about 0 real visitors. The site isn't in Google or Bing yet, and the approved channels (R-008, R-011, R-013) all need you to set something up. I can do this one alone once it's approved, and it gives search engines a link to find the site.
+- Cost: £0 (free listings only; I won't buy any paid upgrade)
+- Exact text / link: as above

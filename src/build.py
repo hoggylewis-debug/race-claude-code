@@ -21,6 +21,33 @@ document.getElementById('tagSheet').innerHTML=n.map(function(x){return '<div cla
 document.getElementById('tagMake').onclick=make;document.getElementById('tagPrint').onclick=function(){make();window.print()};make();})();</script>
 <p>Tip: after the draw, everyone can print a tag for the person they're buying for, so the handwriting never gives them away.</p></div>'''
 
+INVITE = r'''<div class="card" id="invite"><h2 style="margin-top:0">Secret Santa invitation generator</h2>
+<p>Fill in the details and copy a ready-made invitation for your group chat or email. Nothing is sent anywhere.</p>
+<label for="i_group">Group name</label><input id="i_group" placeholder="e.g. the Patel family, Accounts team" maxlength="60">
+<label for="i_limit">Spending limit (£)</label><input id="i_limit" type="number" min="1" max="500" value="10">
+<label for="i_by">Reply by (to say you're in)</label><input id="i_by" placeholder="e.g. Friday 28 November" maxlength="40">
+<label for="i_day">Gift exchange day</label><input id="i_day" placeholder="e.g. Christmas Eve at Gran's, office party 18 Dec" maxlength="60">
+<label for="i_from">From (organiser)</label><input id="i_from" placeholder="e.g. Sam" maxlength="40">
+<label for="i_tone">Style</label><select id="i_tone"><option value="friendly">Friendly</option><option value="work">Work / professional</option><option value="funny">Funny</option></select>
+<p style="margin-top:12px"><textarea id="i_out" rows="9" readonly style="width:100%"></textarea></p>
+<p><button id="iCopy">Copy invitation</button> <a class="btn" id="iWa" target="_blank" rel="noopener" href="#">Send on WhatsApp</a></p>
+<p id="iMsg" class="small"></p>
+<h3>What a good invitation says</h3>
+<ul><li>The spending limit, written as "about £10" so gifts feel even.</li>
+<li>A reply-by date, then the draw happens. Everyone gets a private link showing who they're buying for.</li>
+<li>When and where gifts are swapped.</li>
+<li>Optional: ask for a wishlist line or fill in the <a href="/secret-santa-questionnaire">questionnaire</a>.</li></ul>
+<p>When everyone's replied, type their names in the draw above. Free for up to 6 people; bigger groups, exclusions and wishlists with SantaDraw Pro (a one-off £2.49).</p></div>
+<script>(function(){function v(i){return document.getElementById(i).value.trim()}function build(){var g=v('i_group'),l=v('i_limit')||'10',b=v('i_by'),d=v('i_day'),f=v('i_from'),t=v('i_tone');var s;
+if(t==='work'){s='Hi all,\n\nWe\'re running a Secret Santa'+(g?' for '+g:'')+' this year. Everyone buys one gift of about £'+l+' for a colleague.\n\n'+(b?'If you\'d like to take part, please reply by '+b+'.\n':'If you\'d like to take part, please reply to this message.\n')+'After that I\'ll draw names and send everyone a private link showing who they\'re buying for (no sign-up or email needed).\n'+(d?'\nWe\'ll swap gifts on '+d+'.\n':'')+'\nThanks'+(f?',\n'+f:'')}
+else if(t==='funny'){s='🎅 HO HO HOLD ON. It\'s Secret Santa time'+(g?' for '+g:'')+'!\n\nThe rules: one gift, about £'+l+', and absolutely no re-gifting that candle from last year.\n'+(b?'Say "I\'m in" by '+b+' or Santa will assume you\'re on the naughty list.\n':'Say "I\'m in" or Santa will assume you\'re on the naughty list.\n')+'Then I\'ll draw names and send you a secret link. Tell nobody. Trust nobody.\n'+(d?'\nGift swap: '+d+' 🎁\n':'')+(f?'\n'+f+' (your elf-in-charge)':'')}
+else{s='🎄 Secret Santa'+(g?' for '+g:'')+'!\n\nLet\'s do one gift each this year, about £'+l+'.\n'+(b?'Reply by '+b+' if you\'re in.\n':'Reply if you\'re in.\n')+'Then I\'ll draw names and send everyone a private link showing who they\'re buying for. No sign-up needed.\n'+(d?'\nWe\'ll swap gifts on '+d+'.\n':'')+'\nAdd a wishlist idea when you reply so your Santa gets it right 🎁'+(f?'\n'+f:'')}
+document.getElementById('i_out').value=s;return s}
+['i_group','i_limit','i_by','i_day','i_from','i_tone'].forEach(function(i){document.getElementById(i).addEventListener('input',build);document.getElementById(i).addEventListener('change',build)});build();
+function msg(m){document.getElementById('iMsg').textContent=m}
+document.getElementById('iCopy').onclick=function(){var s=build();if(navigator.clipboard)navigator.clipboard.writeText(s).then(function(){msg('Copied. Paste it into your group chat or email.')},function(){msg('Select the text above and copy it.')});else msg('Select the text above and copy it.')};
+document.getElementById('iWa').onclick=function(){this.href='https://wa.me/?text='+encodeURIComponent(build())};})();</script>'''
+
 PAGES = [
  dict(path='/', file='index.html', nav='Secret Santa generator',
   title='Secret Santa Generator: free draw, private WhatsApp links, no sign-up | SantaDraw',
@@ -54,7 +81,7 @@ PAGES = [
   extra='''<div class="card"><h2 style="margin-top:0">Running a work Secret Santa</h2>
 <ul><li><strong>Set a clear spending limit</strong> (£10 to £20 is common at work) so nobody feels awkward.</li>
 <li><strong>Agree a date</strong>, e.g. the last day before the Christmas break or the team lunch.</li>
-<li><strong>Make it opt-in.</strong> Only add people who've said yes.</li>
+<li><strong>Make it opt-in.</strong> Only add people who've said yes (send a <a href="/secret-santa-invitation">work-style invitation</a> first).</li>
 <li><strong>Use wishlists</strong> so people get something they actually want. Each person sees their recipient's hints.</li>
 <li><strong>Remote team?</strong> Ask people to post gifts to each other, or use a gift card with a personal note.</li></ul>
 <p>No colleague needs an account, and SantaDraw never stores names or email addresses. Teams bigger than 6 need SantaDraw Pro (£2.49 one-off, often cheaper than one mince pie per person).</p>
@@ -74,7 +101,7 @@ PAGES = [
   h1='🎅 How to organise Secret Santa',
   sub='Everything you need to run a fair, fun Secret Santa,<br>plus a free name draw right here on the page.',
   extra='''<div class="card"><h2 style="margin-top:0">Secret Santa in 5 steps</h2>
-<ol><li><strong>Find out who's in.</strong> Ask in your family or friends chat. 3 people is the minimum, 5 to 15 is ideal.</li>
+<ol><li><strong>Find out who's in.</strong> Ask in your family or friends chat (here's <a href="/secret-santa-invitation">ready-made invitation wording</a>). 3 people is the minimum, 5 to 15 is ideal.</li>
 <li><strong>Agree a spending limit.</strong> £10, £20 and £25 are the most common. A clear limit avoids awkward mismatches.</li>
 <li><strong>Pick the exchange date.</strong> Christmas Day, a party, or a video call.</li>
 <li><strong>Draw names fairly.</strong> Use the draw above: nobody gets themselves, and with Pro you can stop couples drawing each other.</li>
@@ -193,6 +220,7 @@ PAGES = [
   h1='💬 Secret Santa message templates',
   sub='Copy, paste, send. Messages for inviting your group, announcing the draw<br>and reminding everyone, plus the draw itself right here.',
   extra='''<div class="card"><h2 style="margin-top:0">1. The invite (family or friends)</h2>
+<p>Want it filled in with your own limit, date and names? Use the <a href="/secret-santa-invitation">invitation generator</a> (friendly, work or funny).</p>
 <p><em>"Hi all 🎄 Shall we do Secret Santa this year instead of everyone buying for everyone? One present each, £20 limit, swapped on Christmas Day. Reply 🎅 if you're in by Sunday and I'll draw names!"</em></p>
 <h2>2. The invite (work)</h2>
 <p><em>"Hi team! We're doing an optional Secret Santa this year 🎁 Limit £10, gifts exchanged at the Christmas lunch on the 18th. Reply here or message me by Friday if you'd like to join. No pressure either way."</em></p>
@@ -679,6 +707,43 @@ PAGES = [
 <ul><li>Agree it before the draw and put it in the draw: SantaDraw shows the limit on everyone's private link.</li>
 <li>Say whether it's "up to" or "about". "About £10" avoids one £2 gift next to a £10 one.</li>
 <li>If anyone is short of money this year, pick the lower number. Nobody minds.</li></ul></div>'''),
+ dict(path='/secret-santa-invitation', file='secret-santa-invitation.html', nav='Secret Santa invitation wording',
+  title='Secret Santa Invitation Wording: free message generator | SantaDraw',
+  desc='Free Secret Santa invitation generator: friendly, work or funny wording for WhatsApp or email, with your spending limit, reply-by date and gift day. Then draw names free.',
+  h1='✉️ Secret Santa invitation wording',
+  sub='Get your group in: a ready-to-send invite for WhatsApp, Teams or email.<br>Then draw names free and send everyone a private link.',
+  extra=INVITE),
+ dict(path='/secret-santa-for-remote-teams', file='secret-santa-for-remote-teams.html', nav='Secret Santa for remote teams',
+  title='Secret Santa for Remote and Hybrid Teams: draw names online | SantaDraw',
+  desc='Run a Secret Santa for a remote or hybrid team: draw names online, post one link in Slack or Teams, ship gifts to home addresses and open them together on a video call.',
+  h1='💻 Secret Santa for remote teams',
+  sub='Team spread across offices, homes or countries?<br>Draw names once, post one link in Slack or Teams.',
+  extra='''<div class="card"><h2 style="margin-top:0">How to run it remotely</h2>
+<ol><li>Send the <a href="/secret-santa-invitation">invitation</a> in your team channel and collect names.</li>
+<li>Type the names above, set a limit (£10 to £15 covers postage for small gifts) and the call date.</li>
+<li>Press <strong>Draw names</strong> and post the single group link in Slack, Teams or WhatsApp. Each person picks their name and sees their match; nobody needs an account.</li>
+<li>Ask people to share a delivery address privately with their Santa only, or use an online shop's "send as a gift" option.</li>
+<li>Open gifts together on a video call and guess who sent what (see <a href="/secret-santa-reveal-ideas">reveal ideas</a>).</li></ol>
+<p>Teams of more than 6 need SantaDraw Pro, a one-off £2.49 for the organiser (not per person). Pro adds gift hints so remote colleagues who've never met know what to buy.</p>
+<h2>Remote-friendly gift ideas</h2>
+<ul><li>Gifts that post flat: socks, a notebook, letterbox brownies or cookies</li><li>Desk upgrades: a cable organiser, a plant, a good mug warmer</li><li>Digital gifts: an e-book, a coffee shop e-voucher, a streaming rental</li></ul>
+<p>Colleagues in other countries? Agree a limit in pounds and let them spend the local equivalent. More: <a href="/virtual-secret-santa">virtual Secret Santa</a> · <a href="/secret-santa-gifts-for-colleagues">gifts for colleagues</a></p></div>'''),
+ dict(path='/secret-santa-exchange', file='secret-santa-exchange.html', nav='Secret Santa gift exchange',
+  title='Secret Santa Gift Exchange: how it works and a free online draw | SantaDraw',
+  desc='How a Secret Santa gift exchange works, step by step: invitations, the name draw, spending limits and the swap. Draw names online free and send private links by WhatsApp.',
+  h1='🎁 Secret Santa gift exchange',
+  sub='Everyone buys one gift for one person, and nobody knows who.<br>Draw names online free and send everyone their match.',
+  extra='''<div class="card"><h2 style="margin-top:0">How a gift exchange works</h2>
+<ol><li><strong>Invite:</strong> agree who's in, the limit and the swap day (<a href="/secret-santa-invitation">invitation wording</a>).</li>
+<li><strong>Draw:</strong> each person is matched with someone else. Nobody gets themselves, and with exclusions couples don't get each other.</li>
+<li><strong>Tell everyone privately:</strong> with SantaDraw each person gets a link that shows only their own match.</li>
+<li><strong>Shop:</strong> one gift around the limit (<a href="/secret-santa-budget-calculator">how much to spend</a>).</li>
+<li><strong>Swap:</strong> hand over gifts at the party, or post them, and try to guess your Santa.</li></ol>
+<h2>Exchange variations</h2>
+<ul><li><strong>White elephant / Yankee swap:</strong> gifts aren't assigned; people pick and "steal". No draw needed.</li>
+<li><strong>Themed exchange:</strong> everyone buys within a theme (<a href="/secret-santa-themes">theme ideas</a>).</li>
+<li><strong>Kris Kindle:</strong> the Irish name for the same thing (<a href="/kris-kindle-generator">Kris Kindle generator</a>).</li></ul>
+<p>Free for up to 6 people. Bigger groups, exclusions and wishlists: SantaDraw Pro, one-off £2.49.</p></div>'''),
 ]
 
 nav_html = ' · '.join('<a href="%s">%s</a>' % (p['path'], p['nav']) for p in PAGES)

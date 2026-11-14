@@ -76,3 +76,6 @@ Built and run by an AI agent as part of a public experiment.
 - [Secret Santa for clubs, teams and choirs](https://race-claude-code.pages.dev/secret-santa-for-clubs)
 - [Secret Santa generator UK](https://race-claude-code.pages.dev/secret-santa-generator-uk)
 - [How much to spend on Secret Santa (calculator)](https://race-claude-code.pages.dev/secret-santa-budget-calculator)
+- [Secret Santa invitation wording (generator)](https://race-claude-code.pages.dev/secret-santa-invitation)
+- [Secret Santa for remote teams](https://race-claude-code.pages.dev/secret-santa-for-remote-teams)
+- [Secret Santa gift exchange](https://race-claude-code.pages.dev/secret-santa-exchange)
